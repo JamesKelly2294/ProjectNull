@@ -19,31 +19,50 @@ MonoBehaviour:
     m_Value: 0.5
     min: 0
     max: 4
-  thicknessModifier:
+  stepCount:
     m_OverrideState: 0
-    m_Value: 1
-    min: 1
-    max: 10
+    m_Value: 6
+    min: 2
+    max: 32
+  radius:
+    m_OverrideState: 0
+    m_Value: 2
+    min: 0.25
+    max: 5
+  fullResolution:
+    m_OverrideState: 0
+    m_Value: 0
+  maximumRadiusInPixels:
+    m_OverrideState: 0
+    m_Value: 40
+    min: 16
+    max: 256
   directLightingStrength:
     m_OverrideState: 0
     m_Value: 0
     min: 0
     max: 1
-  noiseFilterTolerance:
+  enableRaytracing:
     m_OverrideState: 0
     m_Value: 0
-    min: -8
-    max: 0
-  blurTolerance:
+  rayLength:
     m_OverrideState: 0
-    m_Value: -4.6
-    min: -8
-    max: 1
-  upsampleTolerance:
+    m_Value: 0.5
+    min: 0
+    max: 50
+  enableFilter:
     m_OverrideState: 0
-    m_Value: -12
-    min: -12
-    max: -1
+    m_Value: 0
+  numSamples:
+    m_OverrideState: 0
+    m_Value: 4
+    min: 1
+    max: 64
+  filterRadius:
+    m_OverrideState: 0
+    m_Value: 16
+    min: 1
+    max: 32
 --- !u!114 &-3352347674914365972
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -90,24 +109,24 @@ MonoBehaviour:
     m_Value: 1000
     min: 0
   albedo:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.7973923, g: 0.9339623, b: 0.80700994, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 150
+    m_Value: 1899.51
     min: 1
   baseHeight:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 134.7
   meanHeight:
     m_OverrideState: 0
-    m_Value: 10
+    m_Value: 1597.31
   anisotropy:
     m_OverrideState: 1
-    m_Value: 0.65
+    m_Value: 0.322
     min: -1
     max: 1
   globalLightProbeDimmer:
@@ -184,16 +203,16 @@ MonoBehaviour:
     max: 4
   cascadeShadowSplit0:
     m_OverrideState: 1
-    m_Value: 0.02
+    m_Value: 0.03866667
   cascadeShadowSplit1:
     m_OverrideState: 1
-    m_Value: 0.07
+    m_Value: 0.14400001
   cascadeShadowSplit2:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: 0.22533333
   cascadeShadowBorder0:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.11034482
   cascadeShadowBorder1:
     m_OverrideState: 1
     m_Value: 0
