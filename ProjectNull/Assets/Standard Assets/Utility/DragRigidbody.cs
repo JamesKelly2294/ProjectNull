@@ -6,12 +6,13 @@ namespace UnityStandardAssets.Utility
 {
     public class DragRigidbody : MonoBehaviour
     {
-        const float k_Spring = 50.0f;
-        const float k_Damper = 5.0f;
-        const float k_Drag = 10.0f;
-        const float k_AngularDrag = 5.0f;
-        const float k_Distance = 0.2f;
-        const bool k_AttachToCenterOfMass = false;
+        public float spring = 70.0f;
+        public float damper = 5.0f;
+        public float drag = 10.0f;
+        public float angularDrag = 5.0f;
+        public float distance = 0.0f;
+        public float range = 2.0f;
+        public bool attachToCenterOfMass = false;
 
         private SpringJoint m_SpringJoint;
 
@@ -30,7 +31,7 @@ namespace UnityStandardAssets.Utility
             RaycastHit hit = new RaycastHit();
             if (
                 !Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition).origin,
-                                 mainCamera.ScreenPointToRay(Input.mousePosition).direction, out hit, 100,
+                                 mainCamera.ScreenPointToRay(Input.mousePosition).direction, out hit, range,
                                  Physics.DefaultRaycastLayers))
             {
                 return;
@@ -52,9 +53,9 @@ namespace UnityStandardAssets.Utility
             m_SpringJoint.transform.position = hit.point;
             m_SpringJoint.anchor = Vector3.zero;
 
-            m_SpringJoint.spring = k_Spring;
-            m_SpringJoint.damper = k_Damper;
-            m_SpringJoint.maxDistance = k_Distance;
+            m_SpringJoint.spring = spring;
+            m_SpringJoint.damper = damper;
+            m_SpringJoint.maxDistance = distance;
             m_SpringJoint.connectedBody = hit.rigidbody;
 
             StartCoroutine("DragObject", hit.distance);
@@ -65,8 +66,8 @@ namespace UnityStandardAssets.Utility
         {
             var oldDrag = m_SpringJoint.connectedBody.drag;
             var oldAngularDrag = m_SpringJoint.connectedBody.angularDrag;
-            m_SpringJoint.connectedBody.drag = k_Drag;
-            m_SpringJoint.connectedBody.angularDrag = k_AngularDrag;
+            m_SpringJoint.connectedBody.drag = drag;
+            m_SpringJoint.connectedBody.angularDrag = angularDrag;
             var mainCamera = FindCamera();
             while (Input.GetMouseButton(0))
             {
