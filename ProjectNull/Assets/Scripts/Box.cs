@@ -15,8 +15,14 @@ public class Box : MonoBehaviour
 
     public Material material;
 
-    [Range(0f, 1f)]
-    public float openness = 0f;
+    public bool open = false;
+
+    float openAnimationTime = 0f;
+
+    [Range(0.1f, 10.0f)]
+    public float openAnimationTimeLength = 1f;
+
+    public AnimationCurve openAnimationCurve = AnimationCurve.EaseInOut(0, 0, 1f, 1f);
 
     // Start is called before the first frame update
     void Start()
@@ -69,17 +75,28 @@ public class Box : MonoBehaviour
         topLeftParent.GetComponent<MeshRenderer>().enabled = false;
         topRightParent.GetComponent<MeshRenderer>().enabled = false;
 
+        topFrontParent.GetComponent<BoxCollider>().enabled = false;
+        topBackParent.GetComponent<BoxCollider>().enabled = false;
+        topLeftParent.GetComponent<BoxCollider>().enabled = false;
+        topRightParent.GetComponent<BoxCollider>().enabled = false;
+
 
         foreach (var obj in new List<GameObject> {front, back, left, right, topFront, topBack, topLeft, topRight, bottom} ) {
             obj.GetComponent<MeshRenderer>().material = material;
         }
-
-        GetComponent<MeshRenderer>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (open) {
+            openAnimationTime = Mathf.Max(openAnimationTime + (Time.deltaTime / openAnimationTimeLength), 0);
+        } else {
+            openAnimationTime = Mathf.Min(openAnimationTime - (Time.deltaTime / openAnimationTimeLength), 1);
+        }
+
+
+        var openness = openAnimationCurve.Evaluate(openAnimationTime);
         
         front.transform.localPosition = new Vector3(0, 0, (0.5f * size.z) - wallThickness/2f);
         front.transform.localScale = new Vector3(size.x, size.y, wallThickness);
@@ -96,7 +113,7 @@ public class Box : MonoBehaviour
         bottom.transform.localPosition = new Vector3(0, -0.5f * size.y, 0);
         bottom.transform.localScale = new Vector3(size.x, wallThickness, size.z);
 
-        var topZAngle = (Mathf.Min(openness, 0.5f) / 0.5f) * 260.0f;
+        var topZAngle = openness * 260.0f;
         topFrontParent.transform.localPosition = new Vector3(0, (0.5f * size.y), 0.5f * size.z);
         topFrontParent.transform.localScale = new Vector3(size.x, wallThickness, size.z);
         topFrontParent.transform.localEulerAngles = new Vector3(topZAngle, 0, 0);
@@ -105,7 +122,7 @@ public class Box : MonoBehaviour
         topBackParent.transform.localScale = new Vector3(size.x, wallThickness, size.z);
         topBackParent.transform.localEulerAngles = new Vector3(-topZAngle, 0, 0);
 
-        var topXAngle = ((Mathf.Min(Mathf.Max(openness, 0.14f), 0.65f) - 0.15f) / 0.5f) * -260.0f;
+        var topXAngle = ((Mathf.Min(Mathf.Max(openness, 0.24f), 1f) - 0.25f) / 0.75f) * -260.0f;
         topLeftParent.transform.localPosition = new Vector3(0.5f * size.x, (0.5f * size.y), 0);
         topLeftParent.transform.localScale = new Vector3((0.5f * size.x) + wallThickness, wallThickness, (1f * size.z) - wallThickness);
         topLeftParent.transform.localEulerAngles = new Vector3(0, 0, topXAngle);
