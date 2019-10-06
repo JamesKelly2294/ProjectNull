@@ -25,6 +25,10 @@ public class Box : MonoBehaviour
 
     public AnimationCurve openAnimationCurve = AnimationCurve.EaseInOut(0, 0, 1f, 1f);
 
+    public Task task;
+
+    public GameObject boxLabel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,6 +94,9 @@ public class Box : MonoBehaviour
         {
             obj.GetComponent<MeshRenderer>().material = flapMaterial;
         }
+
+
+        boxLabel.transform.parent = transform;
     }
 
     // Update is called once per frame
@@ -138,5 +145,8 @@ public class Box : MonoBehaviour
         topRightParent.transform.localEulerAngles = new Vector3(0, 0, -topXAngle);
 
         this.GetComponent<BoxCollider>().size = size;
+
+
+        boxLabel.transform.localPosition = new Vector3((0.5f * size.x) - 0.25f, (0.5f * size.y) - 0.30f, (0.5f * size.z) + wallThickness/2f);
     }
 }
