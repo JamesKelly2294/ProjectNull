@@ -17,7 +17,7 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             RaycastHit hitInfo;
-            if (Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hitInfo, 4, 1 << 9))
+            if (Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hitInfo, 4, 1 << 9 | 1 << 13))
             {
                 Rigidbody rb = hitInfo.collider.GetComponent<Rigidbody>();
                 if (rb != null)

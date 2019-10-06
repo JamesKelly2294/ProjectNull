@@ -65,6 +65,7 @@ namespace Lightbug.GrabIt
 
 
         Rigidbody m_targetRB = null;
+        int m_targetLayer;
         Transform m_transform;
 
         Quaternion m_targetRot;
@@ -154,6 +155,9 @@ namespace Lightbug.GrabIt
             m_targetRB = target;
             m_isHingeJoint = target.GetComponent<HingeJoint>() != null;
 
+            m_targetLayer = m_targetRB.gameObject.layer;
+            m_targetRB.gameObject.layer = 13;
+
             //Rigidbody default properties	
             m_defaultProperties.m_useGravity = m_targetRB.useGravity;
             m_defaultProperties.m_drag = m_targetRB.drag;
@@ -190,6 +194,7 @@ namespace Lightbug.GrabIt
             m_targetRB.angularDrag = m_defaultProperties.m_angularDrag;
             m_targetRB.constraints = m_defaultProperties.m_constraints;
 
+            m_targetRB.gameObject.layer = m_targetLayer;
             m_targetRB = null;
 
             m_hitPointObject.transform.SetParent(null);
