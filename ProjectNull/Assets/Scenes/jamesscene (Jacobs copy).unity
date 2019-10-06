@@ -10261,16 +10261,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tasks:
-  - steps:
-    - StepType: 0
-      item: 0
-      completed: 0
-    - StepType: 2
-      item: 0
-      completed: 0
-    - StepType: 1
-      item: 0
-      completed: 0
+  - label: {fileID: 0}
+    requiresItems: 
+    completedItems: 
+    requiresSteps: 
+    completedSteps: 
     timeLeft: 0
     hasBegun: 0
     hasFinished: 0
@@ -10759,7 +10754,7 @@ PrefabInstance:
     - target: {fileID: 902636145239175987, guid: 9aab6363bb71d4069a6b39e4ba9ec06a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -15.58
       objectReference: {fileID: 0}
     - target: {fileID: 902636145239175987, guid: 9aab6363bb71d4069a6b39e4ba9ec06a,
         type: 3}
@@ -10800,6 +10795,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274779491555568120, guid: 9aab6363bb71d4069a6b39e4ba9ec06a,
+        type: 3}
+      propertyPath: task.requiresItems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274779491555568120, guid: 9aab6363bb71d4069a6b39e4ba9ec06a,
+        type: 3}
+      propertyPath: task.requiresSteps.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274779491555568120, guid: 9aab6363bb71d4069a6b39e4ba9ec06a,
+        type: 3}
+      propertyPath: task.requiresItems.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274779491555568120, guid: 9aab6363bb71d4069a6b39e4ba9ec06a,
+        type: 3}
+      propertyPath: task.requiresItems.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274779491555568120, guid: 9aab6363bb71d4069a6b39e4ba9ec06a,
+        type: 3}
+      propertyPath: task.requiresSteps.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274779491555568120, guid: 9aab6363bb71d4069a6b39e4ba9ec06a,
+        type: 3}
+      propertyPath: task.requiresSteps.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274779491555568120, guid: 9aab6363bb71d4069a6b39e4ba9ec06a,
+        type: 3}
+      propertyPath: task.requiresSteps.Array.data[3]
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aab6363bb71d4069a6b39e4ba9ec06a, type: 3}

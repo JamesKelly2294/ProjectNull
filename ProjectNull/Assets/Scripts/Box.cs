@@ -25,7 +25,6 @@ public class Box : MonoBehaviour
 
     public AnimationCurve openAnimationCurve = AnimationCurve.EaseInOut(0, 0, 1f, 1f);
 
-    public Task task;
 
     public GameObject boxLabel;
 

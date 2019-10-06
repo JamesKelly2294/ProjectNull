@@ -24,7 +24,13 @@ public class TaskManager : MonoBehaviour
 [System.Serializable]
 public struct Task {
     
-    public List<Step> steps;
+    public BoxLabel label;
+
+    public List<ItemType> requiresItems;
+    public List<ItemType> completedItems;
+
+    public List<StepType> requiresSteps;
+    public List<StepType> completedSteps;
 
     public float timeLeft;
 
@@ -32,23 +38,45 @@ public struct Task {
 
     public bool hasFinished;
 
+
+    static Dictionary<ItemType, Material> itemMaterials = new Dictionary<ItemType, Material>();
+    public Material GetImageForItem(ItemType item) {
+        if (itemMaterials.ContainsKey(item)) {
+            return itemMaterials[item];
+        }
+
+        string name = "";
+        switch (item) {
+            case ItemType.baseball:
+                name = "baseball"; break;
+            case ItemType.basketball:
+                name = "basketball"; break;
+            case ItemType.coins:
+                name = "coins"; break;
+            case ItemType.fish:
+                name = "fish"; break;
+            case ItemType.meat:
+                name = "meat"; break;
+            case ItemType.pens:
+                name = "pens"; break;
+            case ItemType.portraits:
+                name = "portraits"; break;
+            case ItemType.truck:
+                name = "truck"; break;
+            case ItemType.videoGame:
+                name = "videoGame"; break;
+        }
+
+        string url = "Stickers/Items/" + name;
+        var resource =  Resources.Load<Material>(url);
+        itemMaterials[item] = resource;
+        return resource;
+    }
+
 }
-
-[System.Serializable]
-public struct Step
-{
-    public StepType StepType;
-
-    public ItemType item;
-
-    public bool completed;
-}
-
 
 public enum StepType {
     placeShippingLabel,
-    fillBox,
-    emptyBox,
     wetBox,
     dryBox,
     freezeBox,
@@ -56,8 +84,6 @@ public enum StepType {
 }
 
 public enum ItemType {
-    none,
-
     fish,
 
     meat,
@@ -66,13 +92,13 @@ public enum ItemType {
 
     basketball,
 
-    toyTruck,
+    truck,
 
-    sharpie,
+    pens,
 
     coins,
 
-    pictureFrame,
+    portraits,
 
     videoGame
 }
