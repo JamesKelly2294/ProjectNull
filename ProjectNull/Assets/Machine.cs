@@ -12,6 +12,21 @@ public class Machine : MonoBehaviour
         window.DisplayObject(go);
     }
 
+    public void ObjectWasDisplayed(GameObject go)
+    {
+
+    }
+
+    public void ObjectWasRemovedFromDisplay (GameObject go)
+    {
+
+    }
+
+    public void ObjectWasSchlorped(GameObject go)
+    {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +36,6 @@ public class Machine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(window.displayedObject)
-        {
-            window.RemoveObjectFromDisplay();
-        }
+
     }
 }

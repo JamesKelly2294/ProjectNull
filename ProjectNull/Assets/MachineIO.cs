@@ -17,6 +17,7 @@ public class MachineIO : MonoBehaviour
     private BoxCollider voidRigidbody;
 
     private Vector3 axisOfTransit = Vector3.forward;
+    private Vector3 axisOfOutput = Vector3.right;
     private float distanceOfTransit = 3.0f;
     private float speed = 2.0f;
     private GameObject capturedObject;
@@ -30,22 +31,28 @@ public class MachineIO : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (machine.canAccept && colliders.Count > 0)
+        if (type == MachineIOType.Input && machine.canAccept && colliders.Count > 0)
         {
             Debug.Log("Schloink");
             machine.canAccept = false;
-            capturedObject = colliders[0].gameObject;
-            StartCoroutine(SchloinkObject(capturedObject.transform.position, capturedObject.transform.position + distanceOfTransit * axisOfTransit, distanceOfTransit / speed));
+            SchloinkObject(colliders[0].gameObject);
         }
     }
 
-    private int capturedObjectLayer;
-    private const int shloinkedLayer = 12;
-    IEnumerator SchloinkObject(Vector3 originalPosition, Vector3 finalPosition, float duration)
+    public void SchloinkObject(GameObject obj)
     {
-        capturedObjectLayer = capturedObject.layer;
-        capturedObject.layer = shloinkedLayer;
+        capturedObject = obj;
         capturedObject.GetComponent<Rigidbody>().isKinematic = true;
+        StartCoroutine(SchloinkAnimation(capturedObject.transform.position, capturedObject.transform.position + distanceOfTransit * axisOfTransit, distanceOfTransit / speed));
+    }
+
+    public void SchlorpObject()
+    {
+        StartCoroutine(SchloinkAnimation(voidRigidbody.transform.position + axisOfOutput * (distanceOfTransit / 1.5f), voidRigidbody.transform.position - axisOfOutput * (distanceOfTransit / 1.5f), distanceOfTransit / speed));
+    }
+
+    IEnumerator SchloinkAnimation(Vector3 originalPosition, Vector3 finalPosition, float duration)
+    {
         if (duration > 0f)
         {
             float startTime = Time.time;
@@ -64,10 +71,36 @@ public class MachineIO : MonoBehaviour
         if (capturedObject)
         {
             capturedObject.transform.position = finalPosition;
-            capturedObject.layer = capturedObjectLayer;
         }
 
         machine.ObjectWasSchloinked(capturedObject);
+        capturedObject = null;
+    }
+
+    IEnumerator SchlorpAnimation(Vector3 originalPosition, Vector3 finalPosition, float duration)
+    {
+        if (duration > 0f)
+        {
+            float startTime = Time.time;
+            float endTime = startTime + duration;
+            capturedObject.transform.position = originalPosition;
+            yield return null;
+            while (Time.time < endTime)
+            {
+                float progress = (Time.time - startTime) / duration;
+
+                capturedObject.transform.position = Vector3.Lerp(originalPosition, finalPosition, progress);
+                yield return null;
+            }
+        }
+
+        if (capturedObject)
+        {
+            capturedObject.transform.position = finalPosition;
+        }
+
+        capturedObject.GetComponent<Rigidbody>().isKinematic = false;
+        machine.ObjectWasSchlorped(capturedObject);
         capturedObject = null;
     }
 

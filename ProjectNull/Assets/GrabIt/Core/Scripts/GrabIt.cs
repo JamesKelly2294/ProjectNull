@@ -94,7 +94,6 @@ namespace Lightbug.GrabIt
 
         }
 
-
         void Update()
         {
             if (m_grabbing)

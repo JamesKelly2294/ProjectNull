@@ -10,6 +10,21 @@ public class Sorter : Machine
     public MachineIO greenOutput;
     public MachineIO blueOutput;
 
+    public void RedButtonWasPressed()
+    {
+        window.RemoveObjectFromDisplay();
+    }
+
+    public void GreenButtonWasPressed()
+    {
+        window.RemoveObjectFromDisplay();
+    }
+
+    public void BlueButtonWasPressed()
+    {
+        window.RemoveObjectFromDisplay();
+    }
+
     // Start is called before the first frame update
     void Start()
     {

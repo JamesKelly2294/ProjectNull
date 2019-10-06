@@ -12,18 +12,18 @@ public class PlayerInput : MonoBehaviour
         m_Camera = Camera.main;
     }
 
+    const int range = 4;
     private void handleGameInteraction()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
         {
             RaycastHit hitInfo;
-            if (Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hitInfo, 4, 1 << 9 | 1 << 13))
+            if (Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hitInfo, range, ~(1 << 10)))
             {
-                Rigidbody rb = hitInfo.collider.GetComponent<Rigidbody>();
-                if (rb != null)
+                Interactable interactable = hitInfo.collider.gameObject.GetComponent<Interactable>();
+                if (interactable != null)
                 {
-                    Box b = rb.GetComponent<Box>();
-                    b.open = !b.open;
+                    interactable.Interact();
                 }
             }
         }

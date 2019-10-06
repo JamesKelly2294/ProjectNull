@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MachineWindow : MonoBehaviour
 {
+    public Machine machine;
     public GameObject displayedObject { get; private set; }
 
     [Range(0.1f, 2.5f)]
@@ -39,15 +40,19 @@ public class MachineWindow : MonoBehaviour
             return;
         }
         displayedObject = target;
-        StartCoroutine(AnimateObject(startPosition, displayPosition, enterTime));
+        StartCoroutine(AnimateObject(startPosition, displayPosition, enterTime, true));
     }
 
     public void RemoveObjectFromDisplay()
     {
-        StartCoroutine(AnimateObject(displayPosition, endPosition, exitTime));
+        if(locked || !displayedObject)
+        {
+            return;
+        }
+        StartCoroutine(AnimateObject(displayPosition, endPosition, exitTime, false));
     }
 
-    IEnumerator AnimateObject(Transform originalPosition, Transform finalPosition, float duration)
+    IEnumerator AnimateObject(Transform originalPosition, Transform finalPosition, float duration, bool displaying)
     {
         locked = true;
         displayedObject.transform.rotation = displayPosition.rotation;
@@ -65,7 +70,14 @@ public class MachineWindow : MonoBehaviour
                 yield return null;
             }
         }
-        displayedObject = null;
+        if(displaying)
+        {
+            machine.ObjectWasDisplayed(displayedObject);
+        } else
+        {
+            machine.ObjectWasRemovedFromDisplay(displayedObject);
+            displayedObject = null;
+        }
         locked = false;
     }
 }
