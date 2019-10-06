@@ -8,8 +8,8 @@ public class MachineIO : MonoBehaviour
     public BoxCollider voidRigidbody;
 
     private Vector3 axisOfTransit = Vector3.forward;
-    private float distanceOfTransit = 1.0f;
-    private float speed = 1.0f;
+    private float distanceOfTransit = 3.0f;
+    private float speed = 2.0f;
     private GameObject capturedObject;
 
     // Start is called before the first frame update
@@ -23,8 +23,10 @@ public class MachineIO : MonoBehaviour
     {
         if (canAccept && colliders.Count > 0)
         {
+            Debug.Log("Schloink");
+            canAccept = false;
             capturedObject = colliders[0].gameObject;
-            StartCoroutine(SchloinkObject(capturedObject.transform.position, capturedObject.transform.position + axisOfTransit, distanceOfTransit / speed));
+            StartCoroutine(SchloinkObject(capturedObject.transform.position, capturedObject.transform.position + distanceOfTransit * axisOfTransit, distanceOfTransit / speed));
         }
     }
 
@@ -53,6 +55,7 @@ public class MachineIO : MonoBehaviour
         {
             capturedObject.transform.position = finalPosition;
             capturedObject.layer = capturedObjectLayer;
+            canAccept = true;
         }
 
         capturedObject = null;

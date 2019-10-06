@@ -28,7 +28,7 @@ namespace Lightbug.GrabIt
 
         [SerializeField]
         [Range(4, 50)]
-        float m_grabSpeed = 7;
+        float m_grabSpeed = 12;
 
         [SerializeField]
         [Range(0.1f, 5)]
@@ -36,7 +36,7 @@ namespace Lightbug.GrabIt
 
         [SerializeField]
         [Range(4, 25)]
-        float m_grabMaxDistance = 10;
+        float m_grabMaxDistance = 4;
 
         [SerializeField]
         [Range(1, 10)]
