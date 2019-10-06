@@ -2,10 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum MachineIOType
+{
+    Input = 0,
+    Output = 1,
+    InputOutput = 2
+}
+
 public class MachineIO : MonoBehaviour
 {
-    public bool canAccept = true;
-    public BoxCollider voidRigidbody;
+    public MachineIOType type;
+    public Machine machine;
+    
+    private BoxCollider voidRigidbody;
 
     private Vector3 axisOfTransit = Vector3.forward;
     private float distanceOfTransit = 3.0f;
@@ -15,16 +24,16 @@ public class MachineIO : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        voidRigidbody = transform.Find("Void").GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canAccept && colliders.Count > 0)
+        if (machine.canAccept && colliders.Count > 0)
         {
             Debug.Log("Schloink");
-            canAccept = false;
+            machine.canAccept = false;
             capturedObject = colliders[0].gameObject;
             StartCoroutine(SchloinkObject(capturedObject.transform.position, capturedObject.transform.position + distanceOfTransit * axisOfTransit, distanceOfTransit / speed));
         }
@@ -36,6 +45,7 @@ public class MachineIO : MonoBehaviour
     {
         capturedObjectLayer = capturedObject.layer;
         capturedObject.layer = shloinkedLayer;
+        capturedObject.GetComponent<Rigidbody>().isKinematic = true;
         if (duration > 0f)
         {
             float startTime = Time.time;
@@ -55,9 +65,9 @@ public class MachineIO : MonoBehaviour
         {
             capturedObject.transform.position = finalPosition;
             capturedObject.layer = capturedObjectLayer;
-            canAccept = true;
         }
 
+        machine.ObjectWasSchloinked(capturedObject);
         capturedObject = null;
     }
 
@@ -68,14 +78,12 @@ public class MachineIO : MonoBehaviour
     {
         if (!other.GetComponent<Box>()) { return; }
         if (!colliders.Contains(other)) { colliders.Add(other); }
-        Debug.Log("OnTriggerEnter " + other);
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (!other.GetComponent<Box>()) { return; }
         colliders.Remove(other);
-        Debug.Log("OnTriggerExit " + other);
     }
 
 }

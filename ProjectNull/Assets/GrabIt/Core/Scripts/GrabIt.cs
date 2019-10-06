@@ -117,7 +117,7 @@ namespace Lightbug.GrabIt
                 }
 
 
-                if (Input.GetMouseButtonUp(0))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     Reset();
                     m_grabbing = false;
@@ -132,7 +132,7 @@ namespace Lightbug.GrabIt
             else
             {
 
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     RaycastHit hitInfo;
                     if (Physics.Raycast(m_transform.position, m_transform.forward, out hitInfo, m_grabMaxDistance, m_collisionMask))

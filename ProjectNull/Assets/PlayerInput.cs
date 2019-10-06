@@ -14,7 +14,7 @@ public class PlayerInput : MonoBehaviour
 
     private void handleGameInteraction()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             RaycastHit hitInfo;
             if (Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hitInfo, 4, 1 << 9))
