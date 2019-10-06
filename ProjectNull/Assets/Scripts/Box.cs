@@ -75,24 +75,20 @@ public class Box : MonoBehaviour
         topRight.transform.localScale = new Vector3(0.5f, 1, 1);
         topRight.transform.localPosition = new Vector3(0.25f, 0, 0);
 
-        topFrontParent.GetComponent<MeshRenderer>().enabled = false;
-        topBackParent.GetComponent<MeshRenderer>().enabled = false;
-        topLeftParent.GetComponent<MeshRenderer>().enabled = false;
-        topRightParent.GetComponent<MeshRenderer>().enabled = false;
-
-        topFrontParent.GetComponent<BoxCollider>().enabled = false;
-        topBackParent.GetComponent<BoxCollider>().enabled = false;
-        topLeftParent.GetComponent<BoxCollider>().enabled = false;
-        topRightParent.GetComponent<BoxCollider>().enabled = false;
-
+        foreach (var obj in new List<GameObject> {topFrontParent, topBackParent, topLeftParent, topRightParent, topFrontParent, topBackParent, topLeftParent, topRightParent} ) {
+            obj.GetComponent<BoxCollider>().enabled = false;
+            obj.GetComponent<MeshRenderer>().enabled = false;
+        }
 
         foreach (var obj in new List<GameObject> {front, back, left, right, bottom} ) {
             obj.GetComponent<MeshRenderer>().material = material;
+            obj.GetComponent<BoxCollider>().enabled = false;
         }
 
         foreach (var obj in new List<GameObject> { topFront, topBack, topLeft, topRight })
         {
             obj.GetComponent<MeshRenderer>().material = flapMaterial;
+            obj.GetComponent<BoxCollider>().enabled = false;
         }
 
 
