@@ -199,6 +199,12 @@ MonoBehaviour:
   - {fileID: 3237686310309145464}
   - {fileID: 2157808135947233285}
   - {fileID: 1112536326287161230}
+  structure:
+  - {fileID: 4791738063983357483}
+  - {fileID: 4791738064895478371}
+  - {fileID: 4791738064760763215}
+  - {fileID: 4939906568628307532}
+  sectorColor: 0
 --- !u!1 &4791738064760763215
 GameObject:
   m_ObjectHideFlags: 0

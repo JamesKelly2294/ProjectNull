@@ -35,6 +35,8 @@ public struct ConveyorSector {
 
     public ConveyorSectorColor color;
 
+    public Material material;
+
     [Range(-0.25f, 0.25f)]
     public float speed;
 }
