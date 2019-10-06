@@ -131,12 +131,6 @@ public class Box : MonoBehaviour
         topRightParent.transform.localScale = new Vector3((0.5f * size.x) + wallThickness, wallThickness, (1f * size.z) - wallThickness);
         topRightParent.transform.localEulerAngles = new Vector3(0, 0, -topXAngle);
 
-        
-        
-
-
-
-
-
+        this.GetComponent<BoxCollider>().size = size;
     }
 }
