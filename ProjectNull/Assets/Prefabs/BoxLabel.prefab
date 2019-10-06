@@ -381,6 +381,7 @@ MonoBehaviour:
     label: {fileID: 0}
     requiresItems: 
     packedItems: 
+    line: 3
 --- !u!1 &2069891232455736072
 GameObject:
   m_ObjectHideFlags: 0
