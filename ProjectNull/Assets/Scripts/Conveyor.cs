@@ -7,8 +7,7 @@ public class Conveyor : MonoBehaviour
 
     public List<ConveyorRoller> rollers;
 
-    [Range(0.01f, 1f)]
-    float speed = 0.25f;
+    public ConveyorSectorColor sectorColor;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +18,13 @@ public class Conveyor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        var sector = GameObject.FindObjectOfType<ConveyorManager>().SectorForColor(sectorColor);
+        var speed = sector.Value.speed;
+
+        foreach(var roller in rollers) {
+            roller.speed = speed;
+        }
 
     }
 }
