@@ -48,6 +48,7 @@ MonoBehaviour:
   size: {x: 1, y: 1, z: 1}
   wallThickness: 0.02
   material: {fileID: 2100000, guid: a42083c9dc6ee4861af5f70f19295852, type: 2}
+  flapMaterial: {fileID: 2100000, guid: 62795f86da7865147a5be23e7e5da861, type: 2}
   open: 0
   openAnimationTimeLength: 0.5
   openAnimationCurve:

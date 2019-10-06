@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Lightbug.GrabIt
 {
@@ -65,6 +66,8 @@ namespace Lightbug.GrabIt
 
         Rigidbody m_targetRB = null;
         Transform m_transform;
+
+        Quaternion m_targetRot;
 
         Vector3 m_targetPos;
         GameObject m_hitPointObject;
@@ -157,16 +160,17 @@ namespace Lightbug.GrabIt
             m_defaultProperties.m_angularDrag = m_targetRB.angularDrag;
             m_defaultProperties.m_constraints = m_targetRB.constraints;
 
-
-            Debug.Log(m_defaultProperties.m_drag);
-
-
             //Grab Properties	
             m_targetRB.useGravity = m_grabProperties.m_useGravity;
             m_targetRB.drag = m_grabProperties.m_drag;
             m_targetRB.angularDrag = m_grabProperties.m_angularDrag;
             m_targetRB.constraints = m_isHingeJoint ? RigidbodyConstraints.None : m_grabProperties.m_constraints;
 
+            m_targetRot = Quaternion.identity;
+
+            const float speed = 360.0f;
+            var a = Quaternion.Angle(m_targetRB.transform.rotation, m_targetRot); //degrees we must travel
+            StartCoroutine(RotateOverTime(m_targetRB.transform.rotation, m_targetRot, a / speed));
 
             m_hitPointObject.transform.SetParent(target.transform);
 
@@ -192,6 +196,29 @@ namespace Lightbug.GrabIt
 
             if (m_lineRenderer != null)
                 m_lineRenderer.enabled = false;
+        }
+
+        IEnumerator RotateOverTime(Quaternion originalRotation, Quaternion finalRotation, float duration)
+        {
+            if (duration > 0f)
+            {
+                float startTime = Time.time;
+                float endTime = startTime + duration;
+                m_targetRB.transform.rotation = originalRotation;
+                yield return null;
+                while (Time.time < endTime && m_grabbing)
+                {
+                    float progress = (Time.time - startTime) / duration;
+                    // progress will equal 0 at startTime, 1 at endTime.
+                    m_targetRB.transform.rotation = Quaternion.Slerp(originalRotation, finalRotation, progress);
+                    yield return null;
+                }
+            }
+
+            if (m_targetRB)
+            {
+                m_targetRB.transform.rotation = finalRotation;
+            }
         }
 
         void Grab()

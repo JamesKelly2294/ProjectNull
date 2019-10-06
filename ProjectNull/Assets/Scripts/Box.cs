@@ -14,6 +14,7 @@ public class Box : MonoBehaviour
     GameObject topFrontParent, topBackParent, topLeftParent, topRightParent ;
 
     public Material material;
+    public Material flapMaterial;
 
     public bool open = false;
 
@@ -81,8 +82,13 @@ public class Box : MonoBehaviour
         topRightParent.GetComponent<BoxCollider>().enabled = false;
 
 
-        foreach (var obj in new List<GameObject> {front, back, left, right, topFront, topBack, topLeft, topRight, bottom} ) {
+        foreach (var obj in new List<GameObject> {front, back, left, right, bottom} ) {
             obj.GetComponent<MeshRenderer>().material = material;
+        }
+
+        foreach (var obj in new List<GameObject> { topFront, topBack, topLeft, topRight })
+        {
+            obj.GetComponent<MeshRenderer>().material = flapMaterial;
         }
     }
 
