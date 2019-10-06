@@ -27,19 +27,13 @@ public struct Task {
     public BoxLabel label;
 
     public List<ItemType> requiresItems;
-    public List<ItemType> completedItems;
 
-    public List<StepType> requiresSteps;
-    public List<StepType> completedSteps;
+    public List<ItemType> packedItems;
 
-    public float timeLeft;
-
-    public bool hasBegun;
-
-    public bool hasFinished;
-
+    public ConveyorSectorColor line;
 
     static Dictionary<ItemType, Material> itemMaterials = new Dictionary<ItemType, Material>();
+
     public Material GetImageForItem(ItemType item) {
         if (itemMaterials.ContainsKey(item)) {
             return itemMaterials[item];
@@ -73,14 +67,33 @@ public struct Task {
         return resource;
     }
 
-}
 
-public enum StepType {
-    placeShippingLabel,
-    wetBox,
-    dryBox,
-    freezeBox,
-    heatBox
+    static Dictionary<ConveyorSectorColor, Material> lineMaterials = new Dictionary<ConveyorSectorColor, Material>();
+
+    public Material GetImageForLine(ConveyorSectorColor color) {
+        if (lineMaterials.ContainsKey(color)) {
+            return lineMaterials[color];
+        }
+
+        string name = "";
+        switch (color) {
+            case ConveyorSectorColor.black:
+                return null;
+            case ConveyorSectorColor.red:
+                name = "red"; break;
+            case ConveyorSectorColor.green:
+                name = "green"; break;
+            case ConveyorSectorColor.blue:
+                name = "blue"; break;
+        }
+
+        string url = "Stickers/Lines/" + name;
+        var resource =  Resources.Load<Material>(url);
+        lineMaterials[color] = resource;
+        return resource;
+    }
+
+
 }
 
 public enum ItemType {

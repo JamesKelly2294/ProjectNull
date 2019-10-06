@@ -7,7 +7,7 @@ public class BoxLabel : MonoBehaviour
 
     public List<GameObject> requiresStickerSlots;
 
-    public List<GameObject> specialHandlingStickerSlots;
+    public GameObject lineSticker;
 
     public Task task;
 
@@ -23,7 +23,7 @@ public class BoxLabel : MonoBehaviour
     {
     }
 
-    void UpdateLabel()
+    public void UpdateLabel()
     {
 
         // Update the requires section.
@@ -38,16 +38,11 @@ public class BoxLabel : MonoBehaviour
             obj.GetComponent<MeshRenderer>().material = task.GetImageForItem(task.requiresItems[i]);
         }
 
-
-        // Update the special handling secition
-
-        foreach (var obj in specialHandlingStickerSlots) {
-            obj.GetComponent<MeshRenderer>().enabled = false;
-        }
-
-        for (var i = 0; i < task.requiresSteps.Count && i < specialHandlingStickerSlots.Count; i++) {
-            var obj = specialHandlingStickerSlots[i];
-            obj.GetComponent<MeshRenderer>().enabled = true;
+        if (task.line != ConveyorSectorColor.black) {
+            lineSticker.GetComponent<MeshRenderer>().enabled = true;
+            lineSticker.GetComponent<MeshRenderer>().material = task.GetImageForLine(task.line);
+        } else {
+            lineSticker.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 }
