@@ -323,8 +323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2912da3c5c6847f290130093f11fdb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rollers:
-  - {fileID: 0}
+  rollers: []
+  structure: []
+  sectorColor: 3
 --- !u!1 &2638797880076094887
 GameObject:
   m_ObjectHideFlags: 0
