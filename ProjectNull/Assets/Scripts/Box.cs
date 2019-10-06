@@ -140,7 +140,7 @@ public class Box : MonoBehaviour
         topRightParent.transform.localScale = new Vector3((0.5f * size.x) + wallThickness, wallThickness, (1f * size.z) - wallThickness);
         topRightParent.transform.localEulerAngles = new Vector3(0, 0, -topXAngle);
 
-        this.GetComponent<BoxCollider>().size = size;
+        this.GetComponent<BoxCollider>().size = new Vector3(size.x + (2*wallThickness), size.y + (2*wallThickness), size.z + (2*wallThickness));
 
 
         boxLabel.transform.localPosition = new Vector3((0.5f * size.x) - 0.25f, (0.5f * size.y) - 0.30f, (0.5f * size.z) + wallThickness/2f);
