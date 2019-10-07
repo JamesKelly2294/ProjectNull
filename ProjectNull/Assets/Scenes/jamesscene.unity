@@ -22174,6 +22174,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8615798515674200251, guid: 4297048726bcdbe42b8c4c64800f03e0,
+        type: 3}
+      propertyPath: color
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8615798515062201566, guid: 4297048726bcdbe42b8c4c64800f03e0,
         type: 3}
       propertyPath: m_Mesh
@@ -22263,6 +22268,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026998132005995615, guid: 4297048726bcdbe42b8c4c64800f03e0,
+        type: 3}
+      propertyPath: sectorColor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026998131198451613, guid: 4297048726bcdbe42b8c4c64800f03e0,
+        type: 3}
+      propertyPath: sectorColor
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4297048726bcdbe42b8c4c64800f03e0, type: 3}
@@ -26891,6 +26906,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8615798515674200251, guid: 4297048726bcdbe42b8c4c64800f03e0,
+        type: 3}
+      propertyPath: color
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8615798515062201566, guid: 4297048726bcdbe42b8c4c64800f03e0,
         type: 3}
       propertyPath: m_Mesh
@@ -26980,6 +27000,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026998132005995615, guid: 4297048726bcdbe42b8c4c64800f03e0,
+        type: 3}
+      propertyPath: sectorColor
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026998131198451613, guid: 4297048726bcdbe42b8c4c64800f03e0,
+        type: 3}
+      propertyPath: sectorColor
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4297048726bcdbe42b8c4c64800f03e0, type: 3}
@@ -27708,6 +27738,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PlaneDistance
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832152816657991095, guid: 1b2518cf6fcb741158fc87a9b314fd45,
+        type: 3}
+      propertyPath: boxLabelFlipTime
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b2518cf6fcb741158fc87a9b314fd45, type: 3}
@@ -38130,6 +38165,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8615798515674200251, guid: 4297048726bcdbe42b8c4c64800f03e0,
+        type: 3}
+      propertyPath: canAccept
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8615798515674200251, guid: 4297048726bcdbe42b8c4c64800f03e0,
+        type: 3}
+      propertyPath: color
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8615798515062201566, guid: 4297048726bcdbe42b8c4c64800f03e0,
         type: 3}
       propertyPath: m_Mesh
@@ -38218,6 +38263,16 @@ PrefabInstance:
     - target: {fileID: 8615798513804354079, guid: 4297048726bcdbe42b8c4c64800f03e0,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026998132005995615, guid: 4297048726bcdbe42b8c4c64800f03e0,
+        type: 3}
+      propertyPath: sectorColor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026998131198451613, guid: 4297048726bcdbe42b8c4c64800f03e0,
+        type: 3}
+      propertyPath: sectorColor
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -56446,6 +56501,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462981305517207596, guid: 6ead8c9c815b07c43b3a90c205f68b41,
+        type: 3}
+      propertyPath: sectors.Array.data[0].speed
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462981305517207596, guid: 6ead8c9c815b07c43b3a90c205f68b41,
+        type: 3}
+      propertyPath: sectors.Array.data[2].speed
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8462981305517207598, guid: 6ead8c9c815b07c43b3a90c205f68b41,
         type: 3}

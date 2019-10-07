@@ -37,7 +37,7 @@ public struct ConveyorSector {
 
     public Material material;
 
-    [Range(-0.25f, 0.25f)]
+    [Range(-1.0f, 1.0f)]
     public float speed;
 }
 

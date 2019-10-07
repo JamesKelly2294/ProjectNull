@@ -5,6 +5,7 @@ using UnityEngine;
 public class Machine : MonoBehaviour
 {
     public MachineWindow window;
+    public MachineIO rejectOutput;
     public bool canAccept = true;
 
     public ConveyorSectorColor color = ConveyorSectorColor.black;
@@ -12,12 +13,19 @@ public class Machine : MonoBehaviour
 
     public virtual void ObjectWasSchloinked(GameObject go)
     {
-        window.DisplayObject(go);
+        box = go.GetComponent<Box>();
+        if (box.Task.sorted && box.Task.sectorColor != color || !box.Task.sorted && color != ConveyorSectorColor.black)
+        {
+            // reject the box
+            rejectOutput.YeetObject(go);
+        } else
+        {
+            window.DisplayObject(go);
+        }
     }
 
     public virtual void ObjectWasDisplayed(GameObject go)
     {
-        box = go.GetComponent<Box>();
     }
 
     public virtual void ObjectWasRemovedFromDisplay (GameObject go)

@@ -2327,7 +2327,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 5114296947097113125}
+  rejectOutput: {fileID: 2763130274940253539}
   canAccept: 1
+  color: 3
   input: {fileID: 2763130274940253539}
   redOutput: {fileID: 2763130274433203303}
   greenOutput: {fileID: 2763130274868042929}
@@ -2515,6 +2517,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089473739632124431, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7397385616269931486, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
         type: 3}
@@ -3369,6 +3376,11 @@ PrefabInstance:
       propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2089473739632124431, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7397385616269931486, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3448,6 +3460,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826275661454569377, guid: d50c438205f73e14182ca08a987519ba,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7826275661454569379, guid: d50c438205f73e14182ca08a987519ba,
         type: 3}
@@ -3558,6 +3575,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089473739632124431, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7397385616269931486, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
         type: 3}

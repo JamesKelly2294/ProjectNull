@@ -132,8 +132,9 @@ public class MachineIO : MonoBehaviour
             capturedObject.transform.position = finalPosition;
         }
 
-        machine.ObjectWasSchloinked(capturedObject);
+        GameObject schloinked = capturedObject;
         capturedObject = null;
+        machine.ObjectWasSchloinked(schloinked);
     }
 
     IEnumerator SchlorpAnimation(Vector3 originalPosition, Vector3 finalPosition, float duration)
