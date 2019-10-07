@@ -38,9 +38,9 @@ public class BoxLabel : MonoBehaviour
             obj.GetComponent<MeshRenderer>().material = task.GetImageForItem(task.requiresItems[i]);
         }
 
-        if (task.line != ConveyorSectorColor.black) {
+        if (task.sectorColor != ConveyorSectorColor.black) {
             lineSticker.GetComponent<MeshRenderer>().enabled = true;
-            lineSticker.GetComponent<MeshRenderer>().material = task.GetImageForLine(task.line);
+            lineSticker.GetComponent<MeshRenderer>().material = task.GetImageForLine(task.sectorColor);
         } else {
             lineSticker.GetComponent<MeshRenderer>().enabled = false;
         }

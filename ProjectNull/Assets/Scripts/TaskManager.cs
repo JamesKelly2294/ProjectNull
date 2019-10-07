@@ -30,7 +30,7 @@ public struct Task {
 
     public List<ItemType> packedItems;
 
-    public ConveyorSectorColor line;
+    public ConveyorSectorColor sectorColor;
 
     static Dictionary<ItemType, Material> itemMaterials = new Dictionary<ItemType, Material>();
 
