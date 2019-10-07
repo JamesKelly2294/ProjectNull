@@ -20,15 +20,15 @@ public class TaskManager : MonoBehaviour
     }
 }
 
+public class Task {
 
-[System.Serializable]
-public struct Task {
-    
     public BoxLabel label;
 
-    public List<ItemType> requiresItems;
+    public List<ItemType> requiresItems = new List<ItemType>();
 
-    public List<ItemType> packedItems;
+    public List<ItemType> packedItems = new List<ItemType>();
+
+    public bool sorted = false;
 
     public ConveyorSectorColor sectorColor;
 

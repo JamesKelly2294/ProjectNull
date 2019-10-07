@@ -16,9 +16,9 @@ public class MachineIO : MonoBehaviour
     
     private BoxCollider voidRigidbody;
 
-    private Vector3 axisOfTransit = Vector3.forward;
-    private Vector3 axisOfOutput = Vector3.right;
-    private float distanceOfTransit = 3.0f;
+    private Vector3 axisOfTransit;
+    private Vector3 axisOfOutput;
+    private float distanceOfTransit = 2.0f;
     private float speed = 2.0f;
     private GameObject capturedObject;
 
@@ -26,12 +26,14 @@ public class MachineIO : MonoBehaviour
     void Start()
     {
         voidRigidbody = transform.Find("Void").GetComponent<BoxCollider>();
+        axisOfTransit = -voidRigidbody.gameObject.transform.right;
+        axisOfOutput = voidRigidbody.gameObject.transform.right;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (type == MachineIOType.Input && machine.canAccept && colliders.Count > 0)
+        if (type == MachineIOType.Input || type == MachineIOType.InputOutput && machine.canAccept && colliders.Count > 0)
         {
             Debug.Log("Schloink");
             machine.canAccept = false;
@@ -39,16 +41,66 @@ public class MachineIO : MonoBehaviour
         }
     }
 
+    public void YeetObject(GameObject obj)
+    {
+        if (type != MachineIOType.Input && type != MachineIOType.InputOutput)
+        {
+            return;
+        }
+
+        capturedObject = obj;
+        capturedObject.GetComponent<Rigidbody>().isKinematic = true;
+        StartCoroutine(YeetAnimation(voidRigidbody.transform.position + axisOfOutput * (distanceOfTransit / 1.5f)));
+    }
+
     public void SchloinkObject(GameObject obj)
     {
+        if (type != MachineIOType.Input && type != MachineIOType.InputOutput)
+        {
+            return;
+        }
+
         capturedObject = obj;
         capturedObject.GetComponent<Rigidbody>().isKinematic = true;
         StartCoroutine(SchloinkAnimation(capturedObject.transform.position, capturedObject.transform.position + distanceOfTransit * axisOfTransit, distanceOfTransit / speed));
     }
 
-    public void SchlorpObject()
+    public void SchlorpObject(GameObject obj)
     {
-        StartCoroutine(SchloinkAnimation(voidRigidbody.transform.position + axisOfOutput * (distanceOfTransit / 1.5f), voidRigidbody.transform.position - axisOfOutput * (distanceOfTransit / 1.5f), distanceOfTransit / speed));
+        if(type != MachineIOType.Output && type != MachineIOType.InputOutput)
+        {
+            return;
+        }
+        capturedObject = obj;
+        capturedObject.GetComponent<Rigidbody>().isKinematic = true;
+        StartCoroutine(SchlorpAnimation(voidRigidbody.transform.position - axisOfOutput * (distanceOfTransit / 1.5f), voidRigidbody.transform.position + axisOfOutput * (distanceOfTransit / 1.5f), distanceOfTransit / speed));
+    }
+
+    int yeetLayer;
+    IEnumerator YeetAnimation(Vector3 originalPosition)
+    {
+        yeetLayer = capturedObject.layer;
+        capturedObject.layer = 12;
+
+        capturedObject.transform.position = originalPosition;
+        Rigidbody rb = capturedObject.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+        rb.AddForce(axisOfOutput * 100, ForceMode.Impulse);
+        float waitDuration = 0.1f;
+        if (waitDuration > 0f)
+        {
+            float startTime = Time.time;
+            float endTime = startTime + waitDuration;
+            yield return null;
+            while (Time.time < endTime)
+            {
+                yield return null;
+            }
+        }
+        
+        capturedObject.layer = yeetLayer;
+        machine.ObjectWasYeeted(capturedObject);
+        capturedObject = null;
     }
 
     IEnumerator SchloinkAnimation(Vector3 originalPosition, Vector3 finalPosition, float duration)

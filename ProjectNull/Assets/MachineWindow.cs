@@ -35,7 +35,8 @@ public class MachineWindow : MonoBehaviour
 
     public void DisplayObject(GameObject target)
     {
-        if(locked)
+        Debug.Log("DisplayObject", target);
+        if (locked)
         {
             return;
         }

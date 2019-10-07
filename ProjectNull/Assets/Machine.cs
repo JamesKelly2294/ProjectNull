@@ -9,24 +9,31 @@ public class Machine : MonoBehaviour
     
     protected Box box;
 
-    public void ObjectWasSchloinked(GameObject go)
+    public virtual void ObjectWasSchloinked(GameObject go)
     {
         window.DisplayObject(go);
     }
 
-    public void ObjectWasDisplayed(GameObject go)
+    public virtual void ObjectWasDisplayed(GameObject go)
     {
         box = go.GetComponent<Box>();
     }
 
-    public void ObjectWasRemovedFromDisplay (GameObject go)
+    public virtual void ObjectWasRemovedFromDisplay (GameObject go)
     {
 
     }
 
-    public void ObjectWasSchlorped(GameObject go)
+    public virtual void ObjectWasSchlorped(GameObject go)
     {
         box = null;
+        canAccept = true;
+    }
+
+    public virtual void ObjectWasYeeted(GameObject go)
+    {
+        box = null;
+        canAccept = true;
     }
 
     // Start is called before the first frame update

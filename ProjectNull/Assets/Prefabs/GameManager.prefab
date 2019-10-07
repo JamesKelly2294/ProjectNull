@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8462981305517207597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8462981305517207599}
+  - component: {fileID: 8462981305517207596}
+  - component: {fileID: 8462981305517207598}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8462981305517207599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462981305517207597}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.993047, y: -6.0501547, z: -6.7492523}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8462981305517207596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462981305517207597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516155bf1aea84797b7e603e0d8cbcc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sectors:
+  - color: 0
+    material: {fileID: 2100000, guid: c481aada71fefa444bd1c1ac9a9522d8, type: 2}
+    speed: 0.25
+  - color: 1
+    material: {fileID: 2100000, guid: fd1144a4f4b8b9044b8294ff087aa7a9, type: 2}
+    speed: 0.25
+  - color: 2
+    material: {fileID: 2100000, guid: 2de651f8d8b74a64b8b50b0f8ab569bd, type: 2}
+    speed: 0.25
+  - color: 3
+    material: {fileID: 2100000, guid: 3d250177ac7854144a5181c4ebcf7617, type: 2}
+    speed: 0.25
+--- !u!114 &8462981305517207598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462981305517207597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9ea85f37c8d488982cd8647906518d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoudAudioSource: {fileID: 0}
+  QuietAudioSource: {fileID: 0}
+  ButtonClickSound: {fileID: 8300000, guid: 4f04957e3f488e648aa8adb2f26ace44, type: 3}

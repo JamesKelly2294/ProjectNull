@@ -11,9 +11,11 @@ public class BoxLabel : MonoBehaviour
 
     public Task task;
 
+    public Box Box { get; set; }
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        task = new Task();
         task.label = this;
         UpdateLabel();
     }

@@ -16,6 +16,10 @@ public class Box : MonoBehaviour
     public Material material;
     public Material flapMaterial;
 
+    public Material redMaterial;
+    public Material greenMaterial;
+    public Material blueMaterial;
+
     public bool open = false;
 
     float openAnimationTime = 0f;
@@ -27,6 +31,48 @@ public class Box : MonoBehaviour
 
 
     public GameObject boxLabel;
+
+    public Task Task
+    {
+        get
+        {
+            return boxLabel.GetComponent<BoxLabel>().task;
+        }
+    }
+
+    public void MarkAsSorted()
+    {
+        Task.sorted = true;
+        switch (Task.sectorColor)
+        {
+            case ConveyorSectorColor.red:
+                SetMaterial(redMaterial);
+                break;
+            case ConveyorSectorColor.green:
+                SetMaterial(greenMaterial);
+                break;
+            case ConveyorSectorColor.blue:
+                SetMaterial(blueMaterial);
+                break;
+            default:
+                Task.sorted = false;
+                SetMaterial(material);
+                break;
+        }
+    }
+
+    void SetMaterial(Material mat)
+    {
+        foreach (var obj in new List<GameObject> { front, back, left, right, bottom })
+        {
+            obj.GetComponent<MeshRenderer>().material = mat;
+        }
+
+        foreach (var obj in new List<GameObject> { topFront, topBack, topLeft, topRight })
+        {
+            obj.GetComponent<MeshRenderer>().material = mat;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -80,18 +126,18 @@ public class Box : MonoBehaviour
         }
 
         foreach (var obj in new List<GameObject> {front, back, left, right, bottom} ) {
-            obj.GetComponent<MeshRenderer>().material = material;
-            obj.GetComponent<BoxCollider>().enabled = false;
+            Destroy(obj.GetComponent<BoxCollider>());
         }
 
         foreach (var obj in new List<GameObject> { topFront, topBack, topLeft, topRight })
         {
-            obj.GetComponent<MeshRenderer>().material = flapMaterial;
-            obj.GetComponent<BoxCollider>().enabled = false;
+            Destroy(obj.GetComponent<BoxCollider>());
         }
 
+        SetMaterial(material);
 
         boxLabel.transform.parent = transform;
+        boxLabel.GetComponent<BoxLabel>().Box = this;
     }
 
     // Update is called once per frame

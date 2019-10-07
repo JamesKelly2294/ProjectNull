@@ -2331,6 +2331,7 @@ MonoBehaviour:
   redOutput: {fileID: 2763130274433203303}
   greenOutput: {fileID: 2763130274868042929}
   blueOutput: {fileID: 2763130274510001488}
+  failureOutput: {fileID: 0}
 --- !u!1 &2207966315505745770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,6 +2493,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
         type: 3}
+      propertyPath: pressOffset.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
+        type: 3}
+      propertyPath: pressDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
+        type: 3}
       propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6579546980372545403}
@@ -2505,45 +2516,10 @@ PrefabInstance:
       propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: pressOffset.z
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: pressDuration
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 2089473739632124431, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7397385616269931486, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
         type: 3}
@@ -2994,6 +2970,11 @@ PrefabInstance:
       propertyPath: machine
       value: 
       objectReference: {fileID: 6579546980372545403}
+    - target: {fileID: 4106396594969751158, guid: 1041f47a6db0395488b1ffa36ebd06e1,
+        type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1041f47a6db0395488b1ffa36ebd06e1, type: 3}
 --- !u!114 &2763130274940253539 stripped
@@ -3355,6 +3336,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
         type: 3}
+      propertyPath: pressOffset.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
+        type: 3}
+      propertyPath: pressDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
+        type: 3}
       propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6579546980372545403}
@@ -3368,45 +3359,10 @@ PrefabInstance:
       propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: pressOffset.z
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: pressDuration
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 2089473739632124431, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7397385616269931486, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
         type: 3}
@@ -3490,6 +3446,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
         type: 3}
+      propertyPath: pressOffset.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
+        type: 3}
+      propertyPath: pressDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
+        type: 3}
       propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6579546980372545403}
@@ -3503,45 +3469,10 @@ PrefabInstance:
       propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: pressOffset.z
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6221774063057661131, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: pressDuration
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 2089473739632124431, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965754846998144732, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7397385616269931486, guid: 125e3b17baebe884c9fc3ab4f0928bd5,
         type: 3}
@@ -3623,6 +3554,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3183169421150900606, guid: cf3ce6e7b7a6d154fa9232e6a57a10ee,
+        type: 3}
+      propertyPath: machine
+      value: 
+      objectReference: {fileID: 6579546980372545403}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf3ce6e7b7a6d154fa9232e6a57a10ee, type: 3}
 --- !u!4 &5114296947097113124 stripped
