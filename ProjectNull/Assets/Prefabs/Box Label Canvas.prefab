@@ -113,6 +113,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxLabel: {fileID: 4899255359046993126}
+  showBoxLabel: 0
+  boxLabelFlipTime: 1
+  flipCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &3353306379402690036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,7 +219,7 @@ PrefabInstance:
     - target: {fileID: 3106404037754409110, guid: 6fd94181b64db4cc6b8eed6e77716939,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fd94181b64db4cc6b8eed6e77716939, type: 3}
