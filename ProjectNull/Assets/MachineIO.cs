@@ -13,6 +13,9 @@ public class MachineIO : MonoBehaviour
 {
     public MachineIOType type;
     public Machine machine;
+
+    [Range(0.1f, 10.0f)]
+    public float processingTime = 1.0f;
     
     private BoxCollider voidRigidbody;
 
@@ -89,7 +92,7 @@ public class MachineIO : MonoBehaviour
         capturedObject.transform.position = originalPosition;
         Rigidbody rb = capturedObject.GetComponent<Rigidbody>();
         rb.isKinematic = false;
-        rb.AddForce(axisOfOutput * 100, ForceMode.Impulse);
+        rb.AddForce(axisOfOutput * 25, ForceMode.Impulse);
         float waitDuration = 0.1f;
         if (waitDuration > 0f)
         {
@@ -135,6 +138,16 @@ public class MachineIO : MonoBehaviour
 
     IEnumerator SchlorpAnimation(Vector3 originalPosition, Vector3 finalPosition, float duration)
     {
+        GameManager.Instance.RequestPlayFactoryProcessingSound(machine, processingTime);
+
+        float delayStartTime = Time.time;
+        float delayEndTime = delayStartTime + processingTime;
+        yield return null;
+        while (Time.time < delayEndTime)
+        {
+            yield return null;
+        }
+
         if (duration > 0f)
         {
             float startTime = Time.time;

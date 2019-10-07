@@ -69,6 +69,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a9ea85f37c8d488982cd8647906518d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoudAudioSource: {fileID: 0}
-  QuietAudioSource: {fileID: 0}
+  playerFPSController: {fileID: 0}
+  PlayBackgroundMusic: 1
+  PlayFactoryAmbience: 1
   ButtonClickSound: {fileID: 8300000, guid: 4f04957e3f488e648aa8adb2f26ace44, type: 3}
+  MachineSound: {fileID: 8300000, guid: 83b224cffc2dab14f96a0d2eeb6eee12, type: 3}
+  BackgroundMusic: {fileID: 8300000, guid: 0aa1fcc147df09b49a10eafc30221603, type: 3}
+  BackgroundAmbience: {fileID: 8300000, guid: 86ed67abc2a687845b2a69ed538e085d, type: 3}
+  GrabIt: {fileID: 0}

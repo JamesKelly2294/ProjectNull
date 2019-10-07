@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public bool PlayFactoryAmbience = true;
 
     public AudioClip ButtonClickSound;
+    public AudioClip MachineSound;
     public AudioClip BackgroundMusic;
     public AudioClip BackgroundAmbience;
 
@@ -45,12 +46,46 @@ public class GameManager : MonoBehaviour
         ambienceAudioSource.Play();
     }
 
+    public void RequestPlayFactoryProcessingSound(Machine machine, float duration)
+    {
+        AudioSource source = machine.gameObject.AddComponent<AudioSource>();
+        source.loop = true;
+        source.clip = MachineSound;
+        source.volume = 0.5f;
+        source.Play();
+
+        StartCoroutine(StopAudioAfterDuration(source, duration));
+    }
+
+    IEnumerator StopAudioAfterDuration(AudioSource source, float duration)
+    {
+        if (duration > 0f)
+        {
+            float startTime = Time.time;
+            float endTime = startTime + duration;
+            yield return null;
+            while (Time.time < endTime)
+            {
+                yield return null;
+            }
+        }
+        
+        source.Stop();
+        Destroy(source);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
         playerFPSController = GameObject.Find("FPSController").gameObject;
-        GrabIt = playerFPSController.transform.Find("FirstPersonCharacter").GetComponent<GrabIt>();
+
+        GameObject firstPersonCharacter = playerFPSController.transform.Find("FirstPersonCharacter").gameObject;
+        GrabIt = firstPersonCharacter.GetComponent<GrabIt>();
+        if (!GrabIt)
+        {
+            GrabIt = firstPersonCharacter.AddComponent<GrabIt>();
+        }
 
         loudAudioSource = playerFPSController.AddComponent<AudioSource>();
         musicAudioSource = playerFPSController.AddComponent<AudioSource>();

@@ -6,7 +6,8 @@ public class Machine : MonoBehaviour
 {
     public MachineWindow window;
     public bool canAccept = true;
-    
+
+    public ConveyorSectorColor color = ConveyorSectorColor.black;
     protected Box box;
 
     public virtual void ObjectWasSchloinked(GameObject go)
