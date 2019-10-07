@@ -9,7 +9,7 @@ public class SpawnVentController : MonoBehaviour
 
     public GameObject boxPrefab;
 
-    public float timeBetweenSpawns = 20f;
+    public float timeBetweenSpawns = 30f;
 
     public float numberOfItemsToPack = 0f;
 

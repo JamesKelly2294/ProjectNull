@@ -33,6 +33,8 @@ public class Box : MonoBehaviour
     public bool onConveyor = false;
     public GameObject boxLabel;
 
+    public GameObject detector;
+
     public Task Task
     {
         get
@@ -192,6 +194,11 @@ public class Box : MonoBehaviour
 
 
         boxLabel.transform.localPosition = new Vector3((0.5f * size.x) - 0.25f, (0.5f * size.y) - 0.30f, (0.5f * size.z) + wallThickness/2f);
+
+
+
+        detector.transform.localPosition = new Vector3(0, 0.52f * size.y, 0);
+        detector.transform.localScale = new Vector3(size.x, wallThickness, size.z);
     }
 
     private void OnDestroy()
