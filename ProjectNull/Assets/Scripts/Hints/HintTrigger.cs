@@ -17,6 +17,5 @@ public class HintTrigger : MonoBehaviour
     {
         Debug.Log("Hint Detriggered");
         Hint.IsDisplayable = false;
-        Hint.IsPresenting = false;
     }
 }

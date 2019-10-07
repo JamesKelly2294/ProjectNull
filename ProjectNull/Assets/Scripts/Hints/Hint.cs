@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum HintDismissBehavior
+{
+    DismissAfterPresenting,
+    DismissAfterTimeOut
+}
+
 public enum HintCadence
 {
     // The hint should be shown once.
@@ -36,7 +42,7 @@ public class Hint : MonoBehaviour
     /// <summary>
     /// Controls how many times the hint should be displayed. Defaults to "once".
     /// </summary>
-    public HintCadence candence = HintCadence.once;
+    public HintCadence cadence = HintCadence.once;
 
     /// <summary>
     /// The maximum number of times the hint should be displayed.
@@ -45,6 +51,16 @@ public class Hint : MonoBehaviour
 
     // How many times has the hint been presented?
     private int _presentations;
+
+    /// <summary>
+    /// Behavior for dismissing the hint. Defaults to a timeout, with the value specified in DismissTimeOut.
+    /// </summary>
+    public HintDismissBehavior DismissBehavior = HintDismissBehavior.DismissAfterTimeOut;
+
+    /// <summary>
+    /// The amount of time to wait before dismissing the timeout.
+    /// </summary>
+    public float DismissTimeout = 5.0f;
 
     /// <summary>
     /// The hint text to display to the user.
@@ -62,10 +78,18 @@ public class Hint : MonoBehaviour
     {
         get
         {
-            bool showAlways = candence == HintCadence.always;
-            bool shownOnceButHasntPresented = candence == HintCadence.once && !HasPresented;
-            bool shownSetNumberOfTimes = candence == HintCadence.upToMaxCount && _presentations < MaxCount;
+            bool showAlways = cadence == HintCadence.always;
+            bool shownOnceButHasntPresented = cadence == HintCadence.once && !HasPresented;
+            bool shownSetNumberOfTimes = cadence == HintCadence.upToMaxCount && _presentations < MaxCount;
             return IsDisplayable && (showAlways || shownOnceButHasntPresented || shownSetNumberOfTimes);
+        }
+    }
+
+    private HintManager HintManager
+    {
+        get
+        {
+            return GameManager.Instance.GetComponent<HintManager>();
         }
     }
 
@@ -75,6 +99,30 @@ public class Hint : MonoBehaviour
         HasPresented = false;
         IsDisplayable = false;
         _presentations = 0;
+        _dismissDelta = 0.0f;
+    }
+
+    private float _dismissDelta;
+
+    void Update()
+    {
+        if (!IsDisplayable && DismissBehavior == HintDismissBehavior.DismissAfterPresenting)
+        {
+            HintManager.DismissHint(this);
+            IsPresenting = false;
+        }
+
+        if (IsDisplayable && DismissBehavior == HintDismissBehavior.DismissAfterTimeOut)
+        {
+            _dismissDelta += Time.deltaTime;
+            if (_dismissDelta > DismissTimeout)
+            {
+                HintManager.DismissHint(this);
+                IsDisplayable = false;
+                IsPresenting = false;
+                _dismissDelta = 0.0f;
+            }
+        }
     }
 
     /// <summary>
