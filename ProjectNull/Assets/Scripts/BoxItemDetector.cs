@@ -18,14 +18,6 @@ public class BoxItemDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ConsiderPacking(other);
-    }
-
-    private void OnTriggerStay(Collider other) {
-        ConsiderPacking(other);
-    }
-
-    public void ConsiderPacking(Collider other) {
         var box = GetComponentInParent<Box>();
         if (!box.open) {
             return;
