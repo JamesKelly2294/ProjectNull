@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PackableItem : MonoBehaviour
 {
+    public ItemType itemType;
+
     // Start is called before the first frame update
     void Start()
     {

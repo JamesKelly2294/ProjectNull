@@ -28,6 +28,10 @@ public class Task {
 
     public List<ItemType> packedItems = new List<ItemType>();
 
+    public bool IsPacked() {
+        return label.task.requiresItems.Count == label.task.packedItems.Count;
+    }
+
     public bool sorted = false;
 
     public ConveyorSectorColor sectorColor;
