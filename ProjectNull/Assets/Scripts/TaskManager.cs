@@ -29,12 +29,29 @@ public class Task {
     public List<ItemType> packedItems = new List<ItemType>();
 
     public bool IsPacked() {
-        return label.task.requiresItems.Count == label.task.packedItems.Count;
+        return label.task.requiresItems.Count == label.task.packedItems.Count && !label.Box.open;
+    }
+
+    public bool _adulated;
+    public bool Adulated
+    {
+        get
+        {
+            return _adulated;
+        }
+        set
+        {
+            _adulated = value;
+            if(_adulated)
+            {
+                label.Box.UpdateAdulatedVisuals();
+            }
+        }
     }
 
     public bool Complete
     {
-        get { return true; }
+        get { return IsPacked() && Adulated; }
     }
 
     public bool sorted = false;

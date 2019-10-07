@@ -27,14 +27,10 @@ public class ConveyorRoller : MonoBehaviour
         var rollerSpeed = 1.5f * 360 * speed;
         roller.transform.localEulerAngles += new Vector3(0, -rollerSpeed * Time.fixedDeltaTime, 0);
 
-        var dir = transform.TransformVector(new Vector3(speed * Time.fixedDeltaTime, 0, 0));
+        var dir = transform.TransformVector(new Vector3(0.5f * speed * Time.fixedDeltaTime, 0, 0));
         foreach (var obj in currentObjects)
         {
-            if (!obj.onConveyor)
-            {
-                obj.onConveyor = true;
                 obj.transform.Translate(obj.transform.InverseTransformVector(dir));
-            }
         }
     }
 

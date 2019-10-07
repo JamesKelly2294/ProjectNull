@@ -55,6 +55,11 @@ MonoBehaviour:
   redMaterial: {fileID: 2100000, guid: c481aada71fefa444bd1c1ac9a9522d8, type: 2}
   greenMaterial: {fileID: 2100000, guid: fd1144a4f4b8b9044b8294ff087aa7a9, type: 2}
   blueMaterial: {fileID: 2100000, guid: 2de651f8d8b74a64b8b50b0f8ab569bd, type: 2}
+  adulatedRedMaterial: {fileID: 2100000, guid: 884e048dae9c40e46a7c3c33367398d4, type: 2}
+  adulatedGreenMaterial: {fileID: 2100000, guid: 57fd57e1869b05345af332dbc7f8eede,
+    type: 2}
+  adulatedBlueMaterial: {fileID: 2100000, guid: 4668362324e91ad4883b245d766b988f,
+    type: 2}
   open: 0
   openAnimationTimeLength: 0.5
   openAnimationCurve:

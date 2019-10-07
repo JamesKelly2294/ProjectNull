@@ -29,7 +29,7 @@ public class Sorter : Machine
         pressedColor = ConveyorSectorColor.blue;
         ValidateBox();
     }
-    
+
     public override void ValidateBox()
     {
         base.ValidateBox();

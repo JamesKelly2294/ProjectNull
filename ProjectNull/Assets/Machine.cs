@@ -14,7 +14,7 @@ public class Machine : MonoBehaviour
     public virtual void ObjectWasSchloinked(GameObject go)
     {
         box = go.GetComponent<Box>();
-        if (box.Task.sorted && box.Task.sectorColor != color || !box.Task.sorted && color != ConveyorSectorColor.black)
+        if (ShouldRejectEnteringBox(box))
         {
             // reject the box
             rejectOutput.YeetObject(go);
@@ -22,6 +22,11 @@ public class Machine : MonoBehaviour
         {
             window.DisplayObject(go);
         }
+    }
+
+    public virtual bool ShouldRejectEnteringBox(Box b)
+    {
+        return box.Task.sorted && box.Task.sectorColor != color || !box.Task.sorted && color != ConveyorSectorColor.black || !box.Task.IsPacked();
     }
 
     public virtual void ObjectWasDisplayed(GameObject go)

@@ -98,6 +98,7 @@ public class GameManager : MonoBehaviour
         playerFPSController = GameObject.Find("FPSController").gameObject;
         timeleft = totalGameTime;
         scoreLabel = GameObject.Find("Score Label").GetComponent<TextMeshPro>();
+        timerLabel = GameObject.Find("Canvas").transform.Find("Time Left").GetComponent<TextMeshProUGUI>();
 
         GameObject firstPersonCharacter = playerFPSController.transform.Find("FirstPersonCharacter").gameObject;
         GrabIt = firstPersonCharacter.GetComponent<GrabIt>();
@@ -121,11 +122,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private TextMeshProUGUI timerLabel;
+    private bool gameOverComplete;
     // Update is called once per frame
     void Update()
     {
         timeleft -= Time.deltaTime;
         var itemsPerBox = Mathf.RoundToInt(itemsPerBoxCurve.Evaluate(1 - (timeleft / totalGameTime)));
         GameObject.FindObjectOfType<SpawnVentController>().numberOfItemsToPack = itemsPerBox;
+
+
+        if (timeleft <= 0 && !gameOverComplete)
+        {
+            gameOverComplete = true;
+            timerLabel.text = "Game Over! Your score: " + score;
+        } else if(timeleft > 0)
+        {
+            float minutes = Mathf.Floor(timeleft / 60);
+            float seconds = Mathf.RoundToInt(timeleft % 60);
+            timerLabel.text = "Time Remaining: " + minutes + "m " + seconds + "s";
+        }
     }
 }

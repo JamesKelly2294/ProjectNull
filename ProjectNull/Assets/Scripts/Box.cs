@@ -21,6 +21,10 @@ public class Box : MonoBehaviour
     public Material greenMaterial;
     public Material blueMaterial;
 
+    public Material adulatedRedMaterial;
+    public Material adulatedGreenMaterial;
+    public Material adulatedBlueMaterial;
+
     public bool open = false;
 
     float openAnimationTime = 0f;
@@ -40,6 +44,26 @@ public class Box : MonoBehaviour
         get
         {
             return boxLabel.GetComponent<BoxLabel>().task;
+        }
+    }
+
+    public void UpdateAdulatedVisuals()
+    {
+        switch (Task.sectorColor)
+        {
+            case ConveyorSectorColor.red:
+                SetMaterial(adulatedRedMaterial);
+                break;
+            case ConveyorSectorColor.green:
+                SetMaterial(adulatedGreenMaterial);
+                break;
+            case ConveyorSectorColor.blue:
+                SetMaterial(adulatedBlueMaterial);
+                break;
+            default:
+                Task.sorted = false;
+                SetMaterial(material);
+                break;
         }
     }
 
