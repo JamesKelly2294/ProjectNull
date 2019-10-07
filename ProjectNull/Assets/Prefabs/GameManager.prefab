@@ -76,4 +76,48 @@ MonoBehaviour:
   MachineSound: {fileID: 8300000, guid: 83b224cffc2dab14f96a0d2eeb6eee12, type: 3}
   BackgroundMusic: {fileID: 8300000, guid: 0aa1fcc147df09b49a10eafc30221603, type: 3}
   BackgroundAmbience: {fileID: 8300000, guid: 86ed67abc2a687845b2a69ed538e085d, type: 3}
+  totalGameTime: 300
+  timeleft: 300
+  itemsPerBoxCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.070913434
+      value: 0.1673122
+      inSlope: 7.193219
+      outSlope: 7.193219
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.65905344
+      value: 5.812414
+      inSlope: 20.301813
+      outSlope: 20.301813
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.093322605
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 12
+      inSlope: 0.95094
+      outSlope: 0.95094
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.41380915
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   GrabIt: {fileID: 0}

@@ -23,6 +23,11 @@ public class GameManager : MonoBehaviour
     private AudioSource musicAudioSource;
     private AudioSource ambienceAudioSource;
 
+    public float totalGameTime = 5 * 60;
+    public float timeleft = 5 * 60f;
+
+    public AnimationCurve itemsPerBoxCurve = AnimationCurve.EaseInOut(0, 0, 1, 12);
+
     public GrabIt GrabIt;
 
     public void RequestPlayButtonClickSound()
@@ -82,6 +87,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         playerFPSController = GameObject.Find("FPSController").gameObject;
+        timeleft = totalGameTime;
 
         GameObject firstPersonCharacter = playerFPSController.transform.Find("FirstPersonCharacter").gameObject;
         GrabIt = firstPersonCharacter.GetComponent<GrabIt>();
@@ -108,5 +114,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeleft -= Time.deltaTime;
+        var itemsPerBox = Mathf.RoundToInt(itemsPerBoxCurve.Evaluate(1 - (timeleft / totalGameTime)));
+        GameObject.FindObjectOfType<SpawnVentController>().numberOfItemsToPack = itemsPerBox;
     }
 }
