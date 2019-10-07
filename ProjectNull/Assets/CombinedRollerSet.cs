@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConveyorRoller : MonoBehaviour
+public class CombinedRollerSet : MonoBehaviour
 {
 
-    public GameObject roller;
-
+    public GameObject[] rollers = new GameObject[6];
     public List<Box> currentObjects;
 
     public float speed = 0.25f;
@@ -25,12 +24,14 @@ public class ConveyorRoller : MonoBehaviour
         }
 
         var rollerSpeed = 1.5f * 360 * speed;
-        roller.transform.localEulerAngles += new Vector3(0, -rollerSpeed * Time.fixedDeltaTime, 0);
+        for (int i = 0; i < rollers.Length; i++)
+        {
+            rollers[i].transform.localEulerAngles += new Vector3(0, -rollerSpeed * Time.fixedDeltaTime, 0);
+        }
 
         var dir = transform.TransformVector(new Vector3(speed * Time.fixedDeltaTime, 0, 0));
-        foreach (var obj in currentObjects)
-        {
-            if (!obj.onConveyor)
+        foreach (var obj in currentObjects) {
+            if(!obj.onConveyor)
             {
                 obj.onConveyor = true;
                 obj.transform.Translate(obj.transform.InverseTransformVector(dir));
@@ -41,8 +42,7 @@ public class ConveyorRoller : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Box b = other.gameObject.GetComponent<Box>();
-        if (b != null)
-        {
+        if (b != null) {
             currentObjects.Add(b);
         }
     }

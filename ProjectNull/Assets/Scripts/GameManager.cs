@@ -74,6 +74,9 @@ public class GameManager : MonoBehaviour
         Destroy(source);
     }
 
+    private void LateUpdate() => Box.allBoxes.ForEach(b => b.onConveyor = false);
+
+
     // Start is called before the first frame update
     void Start()
     {

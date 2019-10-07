@@ -6,6 +6,7 @@ public class Conveyor : MonoBehaviour
 {
 
     public List<ConveyorRoller> rollers;
+    public CombinedRollerSet combinedRoller; // clean up... never prolly lol
 
     public List<GameObject> structure;
 
@@ -26,20 +27,25 @@ public class Conveyor : MonoBehaviour
                 obj.GetComponent<MeshRenderer>().material = sector.Value.material;
             }
         }
+
+        var speed = sector.Value.speed;
+
+        if (combinedRoller)
+        {
+            combinedRoller.speed = speed;
+        }
+        else
+        {
+            foreach (var roller in rollers)
+            {
+                roller.speed = speed;
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        var speed = sector.Value.speed;
-        
-        foreach (var roller in rollers)
-        {
-            if(!roller)
-            {
-                break;
-            }
-            roller.speed = speed;
-        }
+
     }
 }

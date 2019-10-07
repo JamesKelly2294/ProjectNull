@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
+    public static List<Box> allBoxes = new List<Box>();
 
     public Vector3 size = new Vector3(1,1,1);
     
@@ -29,7 +30,7 @@ public class Box : MonoBehaviour
 
     public AnimationCurve openAnimationCurve = AnimationCurve.EaseInOut(0, 0, 1f, 1f);
 
-
+    public bool onConveyor = false;
     public GameObject boxLabel;
 
     public Task Task
@@ -77,6 +78,7 @@ public class Box : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         front = GameObject.CreatePrimitive(PrimitiveType.Cube);
         back = GameObject.CreatePrimitive(PrimitiveType.Cube);
         left = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -138,6 +140,7 @@ public class Box : MonoBehaviour
 
         boxLabel.transform.parent = transform;
         boxLabel.GetComponent<BoxLabel>().Box = this;
+        allBoxes.Add(this);
     }
 
     // Update is called once per frame
@@ -189,5 +192,10 @@ public class Box : MonoBehaviour
 
 
         boxLabel.transform.localPosition = new Vector3((0.5f * size.x) - 0.25f, (0.5f * size.y) - 0.30f, (0.5f * size.z) + wallThickness/2f);
+    }
+
+    private void OnDestroy()
+    {
+        allBoxes.Remove(this);
     }
 }
