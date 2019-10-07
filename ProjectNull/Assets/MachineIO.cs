@@ -62,6 +62,10 @@ public class MachineIO : MonoBehaviour
 
         capturedObject = obj;
         capturedObject.GetComponent<Rigidbody>().isKinematic = true;
+        if (capturedObject == GameManager.Instance.GrabIt.GrabbedObject)
+        {
+            GameManager.Instance.GrabIt.ReleaseGrabbed();
+        }
         StartCoroutine(SchloinkAnimation(capturedObject.transform.position, capturedObject.transform.position + distanceOfTransit * axisOfTransit, distanceOfTransit / speed));
     }
 

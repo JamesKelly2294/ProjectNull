@@ -377,11 +377,6 @@ MonoBehaviour:
   - {fileID: 5690026295029374631}
   - {fileID: 3758735210729362639}
   lineSticker: {fileID: 2654703936521301268}
-  task:
-    label: {fileID: 0}
-    requiresItems: 
-    packedItems: 
-    line: 3
 --- !u!1 &2069891232455736072
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,7 +559,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2654703936521301268}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.003, y: 0.0808, z: 0.10437471}
+  m_LocalPosition: {x: 0.003, y: 0.0808, z: 0.1088}
   m_LocalScale: {x: 0.045, y: 0.10000011, z: 0.0100000035}
   m_Children: []
   m_Father: {fileID: 4752738883507935996}

@@ -12,15 +12,33 @@ public class Interactable : MonoBehaviour
 {
     public InteractableType type;
 
-    public void Interact()
+    public virtual void Interact(RaycastHit hitInfo)
     {
         switch(type)
         {
-            case InteractableType.Box:
-                transform.GetComponent<Box>().open = !transform.GetComponent<Box>().open;
-                break;
             case InteractableType.Button:
                 transform.parent.GetComponent<WorldButton>().Press();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public virtual void InteractSecondary(RaycastHit hitInfo)
+    {
+        switch (type)
+        {
+            default:
+                break;
+        }
+    }
+
+    public virtual void InteractTertiary(RaycastHit hitInfo)
+    {
+        switch (type)
+        {
+            case InteractableType.Box:
+                transform.GetComponent<Box>().open = !transform.GetComponent<Box>().open;
                 break;
             default:
                 break;

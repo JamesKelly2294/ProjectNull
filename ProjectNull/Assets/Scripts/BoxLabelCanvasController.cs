@@ -37,7 +37,21 @@ public class BoxLabelCanvasController : MonoBehaviour
         
         RaycastHit hitInfo;
         showBoxLabel = false;
-        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hitInfo, 4, 1 << 9 | 1 << 13)) {
+
+        if(GameManager.Instance.GrabIt.GrabbedObject)
+        {
+            Box box = GameManager.Instance.GrabIt.GrabbedObject.GetComponent<Box>();
+            if (box != null)
+            {
+                var theBoxesLabel = box.boxLabel.GetComponent<BoxLabel>();
+                if (theBoxesLabel != null)
+                {
+                    boxLabel.task = theBoxesLabel.task;
+                    boxLabel.UpdateLabel();
+                    showBoxLabel = true;
+                }
+            }
+        } else if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hitInfo, 4, 1 << 9 | 1 << 13)) {
             Box box = hitInfo.collider.GetComponent<Box>();
             if (box != null) {
                 var theBoxesLabel = box.boxLabel.GetComponent<BoxLabel>();

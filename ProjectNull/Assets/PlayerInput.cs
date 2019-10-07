@@ -15,7 +15,48 @@ public class PlayerInput : MonoBehaviour
     const int range = 4;
     private void handleGameInteraction()
     {
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
+        {
+            if(GameManager.Instance.GrabIt.GrabbedObject != null)
+            {
+                GameManager.Instance.GrabIt.ReleaseGrabbed();
+            } else
+            {
+                RaycastHit hitInfo;
+                if (Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hitInfo, range, ~(1 << 10)))
+                {
+                    Interactable interactable = hitInfo.collider.gameObject.GetComponent<Interactable>();
+                    if (interactable != null)
+                    {
+                        Debug.Log("Interact");
+                        interactable.Interact(hitInfo);
+                    }
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Q))
+        {
+            if (GameManager.Instance.GrabIt.GrabbedObject != null)
+            {
+                GameManager.Instance.GrabIt.YeetGrabbed();
+            }
+            else
+            {
+                RaycastHit hitInfo;
+                if (Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hitInfo, range, ~(1 << 10)))
+                {
+                    Interactable interactable = hitInfo.collider.gameObject.GetComponent<Interactable>();
+                    if (interactable != null)
+                    {
+                        Debug.Log("InteractSecondary");
+                        interactable.InteractSecondary(hitInfo);
+                    }
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.F))
         {
             RaycastHit hitInfo;
             if (Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hitInfo, range, ~(1 << 10)))
@@ -23,7 +64,8 @@ public class PlayerInput : MonoBehaviour
                 Interactable interactable = hitInfo.collider.gameObject.GetComponent<Interactable>();
                 if (interactable != null)
                 {
-                    interactable.Interact();
+                    Debug.Log("InteractTertiary");
+                    interactable.InteractTertiary(hitInfo);
                 }
             }
         }

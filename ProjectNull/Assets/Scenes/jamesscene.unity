@@ -11085,10 +11085,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSController
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.31
@@ -11107,7 +11103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9879224
+      value: 0.95051926
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalRotation.z
@@ -11115,7 +11111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.15494986
+      value: 0.31066582
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_RootOrder
@@ -11127,72 +11123,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 197.82799
+      value: 143.80101
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: m_StepInterval
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 394655169, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 2083670626}
+    - target: {fileID: 394655169, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 1690340939}
+    m_RemovedComponents:
+    - {fileID: 5535350906545026473, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
---- !u!1 &394655168 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0,
-    type: 3}
-  m_PrefabInstance: {fileID: 394655167}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &394655169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394655168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1e6f457f484b654496b22f99abc640e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 2083670626}
-  eventSystem: {fileID: 1690340939}
---- !u!114 &394655170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394655168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dacd1988f6d52a4ca11ad4deace4028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &394655171 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0,
     type: 3}
   m_PrefabInstance: {fileID: 394655167}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &394655174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394655168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21419b9eb85593c4398f6ad6a89c3039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &396607580
 GameObject:
   m_ObjectHideFlags: 0
@@ -55787,6 +55740,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4683600294261687290, guid: bbbe0323b84f55a498d6ecc3f2e11fac,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 132923576396312213, guid: bbbe0323b84f55a498d6ecc3f2e11fac,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465354954473493002, guid: bbbe0323b84f55a498d6ecc3f2e11fac,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbbe0323b84f55a498d6ecc3f2e11fac, type: 3}
 --- !u!1001 &8360778318011091357
@@ -55936,5 +55904,30 @@ PrefabInstance:
       propertyPath: LoudAudioSource
       value: 
       objectReference: {fileID: 394655171}
+    - target: {fileID: 8462981305517207598, guid: 6ead8c9c815b07c43b3a90c205f68b41,
+        type: 3}
+      propertyPath: QuietAudioSource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462981305517207598, guid: 6ead8c9c815b07c43b3a90c205f68b41,
+        type: 3}
+      propertyPath: BackgroundMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 0aa1fcc147df09b49a10eafc30221603, type: 3}
+    - target: {fileID: 8462981305517207598, guid: 6ead8c9c815b07c43b3a90c205f68b41,
+        type: 3}
+      propertyPath: BackgroundAmbience
+      value: 
+      objectReference: {fileID: 8300000, guid: 86ed67abc2a687845b2a69ed538e085d, type: 3}
+    - target: {fileID: 8462981305517207598, guid: 6ead8c9c815b07c43b3a90c205f68b41,
+        type: 3}
+      propertyPath: PlayBackgroundMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462981305517207598, guid: 6ead8c9c815b07c43b3a90c205f68b41,
+        type: 3}
+      propertyPath: PlayFactoryAmbience
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ead8c9c815b07c43b3a90c205f68b41, type: 3}

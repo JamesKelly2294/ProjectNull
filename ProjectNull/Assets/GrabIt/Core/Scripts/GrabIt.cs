@@ -78,6 +78,18 @@ namespace Lightbug.GrabIt
         bool m_applyImpulse = false;
         bool m_isHingeJoint = false;
 
+        Grabbable grabbed;
+
+
+        public GameObject GrabbedObject
+        {
+            get
+            {
+                if(m_targetRB == null) { return null; } 
+                return m_targetRB.gameObject;
+            }
+        }
+
         //Debug
         LineRenderer m_lineRenderer;
 
@@ -90,7 +102,7 @@ namespace Lightbug.GrabIt
 
             m_lineRenderer = GetComponent<LineRenderer>();
 
-            m_collisionMask = (1 << 9);
+            m_collisionMask = ~(1 << 10);
 
         }
 
@@ -104,49 +116,58 @@ namespace Lightbug.GrabIt
 
                 m_targetPos = m_transform.position + m_transform.forward * m_targetDistance;
 
-                if (!m_isHingeJoint)
-                {
-                    if (Input.GetKey(m_rotatePitchPosKey) || Input.GetKey(m_rotatePitchNegKey) || Input.GetKey(m_rotateYawPosKey) || Input.GetKey(m_rotateYawNegKey))
-                    {
-                        m_targetRB.constraints = RigidbodyConstraints.None;
-                    }
-                    else
-                    {
-                        m_targetRB.constraints = m_grabProperties.m_constraints;
-                    }
-                }
-
-
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    Reset();
-                    m_grabbing = false;
-                }
-                else if (Input.GetMouseButtonDown(1))
-                {
-                    m_applyImpulse = true;
-                }
-
+                //if (!m_isHingeJoint)
+                //{
+                //    if (Input.GetKey(m_rotatePitchPosKey) || Input.GetKey(m_rotatePitchNegKey) || Input.GetKey(m_rotateYawPosKey) || Input.GetKey(m_rotateYawNegKey))
+                //    {
+                //        m_targetRB.constraints = RigidbodyConstraints.None;
+                //    }
+                //    else
+                //    {
+                //        m_targetRB.constraints = m_grabProperties.m_constraints;
+                //    }
+                //}
 
             }
-            else
+
+        }
+
+        public void YeetGrabbed()
+        {
+            Yeet(grabbed);
+        }
+
+        public void Yeet(Grabbable grabbable)
+        {
+            if(grabbed != grabbable) { return; }
+            m_applyImpulse = true;
+        }
+
+        public void Release(Grabbable grabbable)
+        {
+            if (grabbed != grabbable) { return; }
+            Reset();
+            m_grabbing = false;
+        }
+
+        public void ReleaseGrabbed()
+        {
+            Release(grabbed);
+        }
+
+        public void Grab(RaycastHit hitInfo, Grabbable grabbable)
+        {
+            if(grabbed == grabbable)
             {
-
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    RaycastHit hitInfo;
-                    if (Physics.Raycast(m_transform.position, m_transform.forward, out hitInfo, m_grabMaxDistance, m_collisionMask))
-                    {
-                        Rigidbody rb = hitInfo.collider.GetComponent<Rigidbody>();
-                        if (rb != null)
-                        {
-                            Set(rb, hitInfo.distance);
-                            m_grabbing = true;
-                        }
-                    }
-                }
+                Release(grabbable);
             }
 
+            Rigidbody rb = grabbable.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                Set(rb, hitInfo.distance);
+                m_grabbing = true;
+            }
         }
 
         void Set(Rigidbody target, float distance)
@@ -156,6 +177,9 @@ namespace Lightbug.GrabIt
 
             m_targetLayer = m_targetRB.gameObject.layer;
             m_targetRB.gameObject.layer = 13;
+
+            grabbed = m_targetRB.GetComponent<Grabbable>();
+            grabbed.Grabbed = true;
 
             //Rigidbody default properties	
             m_defaultProperties.m_useGravity = m_targetRB.useGravity;
@@ -169,7 +193,8 @@ namespace Lightbug.GrabIt
             m_targetRB.angularDrag = m_grabProperties.m_angularDrag;
             m_targetRB.constraints = m_isHingeJoint ? RigidbodyConstraints.None : m_grabProperties.m_constraints;
 
-            m_targetRot = Quaternion.identity;
+            Vector3 eulerAngles = transform.eulerAngles;
+            m_targetRot = Quaternion.Euler(0, 180 + eulerAngles.y, 0);
 
             const float speed = 360.0f;
             var a = Quaternion.Angle(m_targetRB.transform.rotation, m_targetRot); //degrees we must travel
@@ -195,6 +220,9 @@ namespace Lightbug.GrabIt
 
             m_targetRB.gameObject.layer = m_targetLayer;
             m_targetRB = null;
+
+            grabbed.Grabbed = false;
+            grabbed = null;
 
             m_hitPointObject.transform.SetParent(null);
 
@@ -235,7 +263,6 @@ namespace Lightbug.GrabIt
             else
                 m_targetRB.velocity = m_grabSpeed * dif;
 
-
             if (m_lineRenderer != null)
             {
                 m_lineRenderer.enabled = true;
@@ -269,8 +296,8 @@ namespace Lightbug.GrabIt
             if (!m_grabbing)
                 return;
 
-            if (!m_isHingeJoint)
-                Rotate();
+            //if (!m_isHingeJoint)
+            //    Rotate();
 
             Grab();
 
