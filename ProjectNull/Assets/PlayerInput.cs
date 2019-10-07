@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -17,6 +18,24 @@ public class PlayerInput : MonoBehaviour
     const int range = 4;
     private void handleGameInteraction()
     {
+        MouseLook ml = GameManager.Instance.playerFPSController.GetComponent<FirstPersonController>().m_MouseLook;
+        if (Input.GetKey(KeyCode.Plus))
+        {
+            ml.YSensitivity -= 0.5f * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.Equals))
+        {
+            ml.YSensitivity += 0.5f * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.Minus))
+        {
+            ml.XSensitivity -= 0.5f * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.Underscore))
+        {
+            ml.XSensitivity += 0.5f * Time.deltaTime;
+        }
+
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
         {
             if(GameManager.Instance.GrabIt.GrabbedObject != null)

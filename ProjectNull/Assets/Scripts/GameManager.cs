@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Lightbug.GrabIt;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -79,6 +80,14 @@ public class GameManager : MonoBehaviour
         Destroy(source);
     }
 
+    private TextMeshPro scoreLabel;
+    private int score = 0;
+    public void IncrementScore()
+    {
+        score += 1;
+        scoreLabel.text = score + " boxes shipped";
+    }
+
     private void LateUpdate() => Box.allBoxes.ForEach(b => b.onConveyor = false);
 
 
@@ -88,6 +97,7 @@ public class GameManager : MonoBehaviour
         Instance = this;
         playerFPSController = GameObject.Find("FPSController").gameObject;
         timeleft = totalGameTime;
+        scoreLabel = GameObject.Find("Score Label").GetComponent<TextMeshPro>();
 
         GameObject firstPersonCharacter = playerFPSController.transform.Find("FirstPersonCharacter").gameObject;
         GrabIt = firstPersonCharacter.GetComponent<GrabIt>();

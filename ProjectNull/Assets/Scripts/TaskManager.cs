@@ -32,6 +32,11 @@ public class Task {
         return label.task.requiresItems.Count == label.task.packedItems.Count;
     }
 
+    public bool Complete
+    {
+        get { return true; }
+    }
+
     public bool sorted = false;
 
     public ConveyorSectorColor sectorColor;

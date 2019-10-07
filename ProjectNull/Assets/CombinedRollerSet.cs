@@ -5,7 +5,7 @@ using UnityEngine;
 public class CombinedRollerSet : MonoBehaviour
 {
 
-    public GameObject[] rollers = new GameObject[6];
+    public GameObject[] rollers = new GameObject[3];
     public List<Box> currentObjects;
 
     public float speed = 0.25f;

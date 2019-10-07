@@ -15,4 +15,20 @@ public class ShipBox : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Box b = other.GetComponent<Box>();
+
+        if(b && b.Task.Complete)
+        {
+            if(GameManager.Instance.GrabIt.GrabbedObject == b.gameObject)
+            {
+                GameManager.Instance.GrabIt.ReleaseGrabbed();
+            }
+            GameManager.Instance.IncrementScore();
+
+            Destroy(b.gameObject);
+        }
+    }
 }
