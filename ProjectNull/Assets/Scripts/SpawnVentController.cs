@@ -49,6 +49,24 @@ public class SpawnVentController : MonoBehaviour
             label.task.requiresItems = items;
             label.task.sectorColor = sectorColor;
             label.UpdateLabel();
+
+            if (numberOfItems <= 1) {
+                box.size = new Vector3(0.5f, 0.6f, 0.4f);
+            } else if (numberOfItems <= 3) {
+                box.size = new Vector3(0.6f, 0.6f, 0.6f);
+            } else if (numberOfItems <= 5) {
+                box.size = new Vector3(0.8f, 0.6f, 0.4f);
+            } else if (numberOfItems <= 7) {
+                box.size = new Vector3(0.8f, 0.6f, 0.6f);
+            }  else if (numberOfItems <= 9) {
+                box.size = new Vector3(0.8f, 0.8f, 0.8f);
+            }  else if (numberOfItems <= 11) {
+                box.size = new Vector3(1f, 0.8f, 0.8f);
+            }  else if (numberOfItems <= 12) {
+                box.size = new Vector3(1f, 1f, 0.8f);
+            }  else {
+                box.size = new Vector3(1f, 1f, 1f);
+            }
         }
 
     }
