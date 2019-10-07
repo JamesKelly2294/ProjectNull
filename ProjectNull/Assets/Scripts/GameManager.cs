@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public AudioClip ButtonClickSound;
     public AudioClip MachineSound;
+    public AudioClip NewBoxSound;
     public AudioClip BackgroundMusic;
     public AudioClip BackgroundAmbience;
 
@@ -30,6 +31,11 @@ public class GameManager : MonoBehaviour
     public AnimationCurve itemsPerBoxCurve = AnimationCurve.EaseInOut(0, 0, 1, 12);
 
     public GrabIt GrabIt;
+
+    public void RequestPlayNewBoxSoundSound()
+    {
+        loudAudioSource.PlayOneShot(NewBoxSound);
+    }
 
     public void RequestPlayButtonClickSound()
     {

@@ -132,7 +132,7 @@ public class Adulator : Machine
         switch (color)
         {
             case ConveyorSectorColor.red:
-                rulesDescription.text += "1) If box has only unique items and no duplicates - You're trash.\n\n";
+                rulesDescription.text += "1) If box has no duplicate items - You're trash.\n\n";
                 rulesDescription.text += "2) If box has coins and not a truck - Awesome work!\n\n";
                 rulesDescription.text += "3) If box has fish and meat - Doin' great!\n\n";
                 rulesDescription.text += "4) Otherwise - Killing it!\n";
