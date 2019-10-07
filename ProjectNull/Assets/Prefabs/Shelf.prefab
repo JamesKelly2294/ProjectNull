@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 3414729416530201345}
   - component: {fileID: 7884855154617729525}
   - component: {fileID: 8630936206908536634}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fish (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 7542253883598240268}
   - component: {fileID: 1213487204405856002}
   - component: {fileID: 7867841144303441637}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Basketballs (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 8925080594567589559}
   - component: {fileID: 6810419823620432579}
   - component: {fileID: 1109338910350636497}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ MonoBehaviour:
   objectToSpawnPrefab: {fileID: 486700927191818055, guid: 9986b6ad006e642c19947fe296ab27f7,
     type: 3}
   currentObjects: []
-  numberOfRequiredItems: 20
+  numberOfRequiredItems: 1
   cooldown: 0
 --- !u!1 &928399426832160957
 GameObject:
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 2393201828807486665}
   - component: {fileID: 650099364402567855}
   - component: {fileID: 6965535890442219972}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 3431065841390789882}
   - component: {fileID: 1683750023026371834}
   - component: {fileID: 6779495612090761371}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 2009354802826958963}
   - component: {fileID: 5394221484228101518}
   - component: {fileID: 2383010229160020284}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coin (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +516,7 @@ MonoBehaviour:
   objectToSpawnPrefab: {fileID: 486700927191818055, guid: 9986b6ad006e642c19947fe296ab27f7,
     type: 3}
   currentObjects: []
-  numberOfRequiredItems: 20
+  numberOfRequiredItems: 1
   cooldown: 0
 --- !u!1 &1323897450570281176
 GameObject:
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 6796728466514026533}
   - component: {fileID: 3349812851406789716}
   - component: {fileID: 1737769588567444629}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Meat (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7832413327575064283}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -631,7 +631,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5789258838359375309}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5753875806392878234}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 1701683327753104097}
   - component: {fileID: 5229698871299745585}
   - component: {fileID: 3011879955847271846}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,7 +770,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 273347127546079551}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,7 +805,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7453443804946187738}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Basketball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 5974865054372694356}
   - component: {fileID: 7193545655891333043}
   - component: {fileID: 3745340594551111023}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Meat (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -912,7 +912,7 @@ GameObject:
   - component: {fileID: 4526758584831608189}
   - component: {fileID: 6362478884363230123}
   - component: {fileID: 5597398894974369030}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -983,7 +983,7 @@ GameObject:
   - component: {fileID: 8642873663249244471}
   - component: {fileID: 176288272146473702}
   - component: {fileID: 2697270335363119575}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fish (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1054,7 +1054,7 @@ GameObject:
   - component: {fileID: 1934930683919096139}
   - component: {fileID: 5580392131730164727}
   - component: {fileID: 7406094944366936698}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Basketball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1125,7 +1125,7 @@ GameObject:
   - component: {fileID: 2028270147458166849}
   - component: {fileID: 4334434129083124314}
   - component: {fileID: 1451505051169416474}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1196,7 +1196,7 @@ GameObject:
   - component: {fileID: 4954995501910675516}
   - component: {fileID: 7881091199789222191}
   - component: {fileID: 7210124833212638296}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Meat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1267,7 +1267,7 @@ GameObject:
   - component: {fileID: 8706963856547658952}
   - component: {fileID: 1581770660020168064}
   - component: {fileID: 3526193180225942186}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Baseball (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1338,7 +1338,7 @@ GameObject:
   - component: {fileID: 4584056604995722807}
   - component: {fileID: 4143126532274111290}
   - component: {fileID: 7981715145899862123}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1409,7 +1409,7 @@ GameObject:
   - component: {fileID: 5611241207614557353}
   - component: {fileID: 305084133444254510}
   - component: {fileID: 2087315123631175224}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coin (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1466,7 +1466,7 @@ MonoBehaviour:
   objectToSpawnPrefab: {fileID: 486700927191818055, guid: 9986b6ad006e642c19947fe296ab27f7,
     type: 3}
   currentObjects: []
-  numberOfRequiredItems: 20
+  numberOfRequiredItems: 1
   cooldown: 0
 --- !u!1 &4939604828482556838
 GameObject:
@@ -1480,7 +1480,7 @@ GameObject:
   - component: {fileID: 5272034533748044057}
   - component: {fileID: 5493528497206367350}
   - component: {fileID: 8534417153420451009}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Baseball (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1548,7 +1548,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4068447848611509513}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Baseball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1586,7 +1586,7 @@ GameObject:
   - component: {fileID: 4827897211401690008}
   - component: {fileID: 5558470367259625573}
   - component: {fileID: 1539895935165479065}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1657,7 +1657,7 @@ GameObject:
   - component: {fileID: 1712330732275115397}
   - component: {fileID: 4098458653209803176}
   - component: {fileID: 4296462972219818675}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Baseball (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1728,7 +1728,7 @@ GameObject:
   - component: {fileID: 8436601382120737246}
   - component: {fileID: 9185478825362917393}
   - component: {fileID: 9134565736547907484}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Baseball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1799,7 +1799,7 @@ GameObject:
   - component: {fileID: 8034656706784094244}
   - component: {fileID: 2513815078361253762}
   - component: {fileID: 5907043021855590407}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1867,7 +1867,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4630401733677282975}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spawners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1909,7 +1909,7 @@ GameObject:
   - component: {fileID: 8784518943105673460}
   - component: {fileID: 3485266378062802007}
   - component: {fileID: 2474399379023220438}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1977,7 +1977,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6830227761914102519}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2013,7 +2013,7 @@ GameObject:
   - component: {fileID: 8868384466367823514}
   - component: {fileID: 1363340796948904100}
   - component: {fileID: 2933509230291555960}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coin (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2070,7 +2070,7 @@ MonoBehaviour:
   objectToSpawnPrefab: {fileID: 486700927191818055, guid: 9986b6ad006e642c19947fe296ab27f7,
     type: 3}
   currentObjects: []
-  numberOfRequiredItems: 20
+  numberOfRequiredItems: 1
   cooldown: 0
 --- !u!1 &6438810617440769502
 GameObject:
@@ -2081,7 +2081,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6350913554758578913}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Meat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2117,7 +2117,7 @@ GameObject:
   - component: {fileID: 5012269629843174270}
   - component: {fileID: 2754638076461538515}
   - component: {fileID: 6681039742236165844}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fish (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2229,7 +2229,7 @@ GameObject:
   - component: {fileID: 3907550342047137861}
   - component: {fileID: 4883526766926197508}
   - component: {fileID: 1450939350007828559}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Baseball (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2300,7 +2300,7 @@ GameObject:
   - component: {fileID: 2242883236791590293}
   - component: {fileID: 7469474903509375457}
   - component: {fileID: 1689326823339478533}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Basketballs (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2368,7 +2368,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4098674838799542881}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3730,7 +3730,7 @@ GameObject:
   - component: {fileID: 4861650282288698239}
   - component: {fileID: 5973521227347703743}
   - component: {fileID: 4414315111617955272}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coin (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3787,7 +3787,7 @@ MonoBehaviour:
   objectToSpawnPrefab: {fileID: 486700927191818055, guid: 9986b6ad006e642c19947fe296ab27f7,
     type: 3}
   currentObjects: []
-  numberOfRequiredItems: 20
+  numberOfRequiredItems: 1
   cooldown: 0
 --- !u!1 &7681513140018937606
 GameObject:
@@ -3801,7 +3801,7 @@ GameObject:
   - component: {fileID: 9004703021013814247}
   - component: {fileID: 3864102780974915239}
   - component: {fileID: 7396196765483457413}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3872,7 +3872,7 @@ GameObject:
   - component: {fileID: 2165976647598745656}
   - component: {fileID: 2898139454141185999}
   - component: {fileID: 7460981254554383818}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fish (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3943,7 +3943,7 @@ GameObject:
   - component: {fileID: 8017984951380437644}
   - component: {fileID: 3009752407866896502}
   - component: {fileID: 2240780545692529261}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Picture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4014,7 +4014,7 @@ GameObject:
   - component: {fileID: 5107477464300982786}
   - component: {fileID: 7815025390294969425}
   - component: {fileID: 441782027142163885}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4085,7 +4085,7 @@ GameObject:
   - component: {fileID: 2092155039451879066}
   - component: {fileID: 6767397757934465409}
   - component: {fileID: 916851068560621179}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4156,7 +4156,7 @@ GameObject:
   - component: {fileID: 1180801767513882948}
   - component: {fileID: 6660556633111243437}
   - component: {fileID: 8285257261092323630}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4227,7 +4227,7 @@ GameObject:
   - component: {fileID: 8724149222699242419}
   - component: {fileID: 7269134445385709203}
   - component: {fileID: 6018743430368505354}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,6 +12,8 @@ public class PlayerInput : MonoBehaviour
         m_Camera = Camera.main;
     }
 
+    LayerMask raycastMask = ~((1 << 10) | (1 << 2));
+
     const int range = 4;
     private void handleGameInteraction()
     {
@@ -23,7 +25,7 @@ public class PlayerInput : MonoBehaviour
             } else
             {
                 RaycastHit hitInfo;
-                if (Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hitInfo, range, ~(1 << 10)))
+                if (Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hitInfo, range, raycastMask))
                 {
                     Interactable interactable = hitInfo.collider.gameObject.GetComponent<Interactable>();
                     if (interactable != null)
@@ -44,7 +46,7 @@ public class PlayerInput : MonoBehaviour
             else
             {
                 RaycastHit hitInfo;
-                if (Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hitInfo, range, ~(1 << 10)))
+                if (Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hitInfo, range, raycastMask))
                 {
                     Interactable interactable = hitInfo.collider.gameObject.GetComponent<Interactable>();
                     if (interactable != null)
@@ -59,7 +61,7 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.F))
         {
             RaycastHit hitInfo;
-            if (Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hitInfo, range, ~(1 << 10)))
+            if (Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hitInfo, range, raycastMask))
             {
                 Interactable interactable = hitInfo.collider.gameObject.GetComponent<Interactable>();
                 if (interactable != null)
