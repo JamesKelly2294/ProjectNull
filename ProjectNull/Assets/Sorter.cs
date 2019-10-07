@@ -9,18 +9,24 @@ public class Sorter : Machine
     public MachineIO redOutput;
     public MachineIO greenOutput;
     public MachineIO blueOutput;
+    public MachineIO failureOutput;
 
     public void RedButtonWasPressed()
     {
-        window.RemoveObjectFromDisplay();
+        ValidateBox(ConveyorSectorColor.red);
     }
 
     public void GreenButtonWasPressed()
     {
-        window.RemoveObjectFromDisplay();
+        ValidateBox(ConveyorSectorColor.green);
     }
 
     public void BlueButtonWasPressed()
+    {
+        ValidateBox(ConveyorSectorColor.blue);
+    }
+
+    private void ValidateBox(ConveyorSectorColor color)
     {
         window.RemoveObjectFromDisplay();
     }

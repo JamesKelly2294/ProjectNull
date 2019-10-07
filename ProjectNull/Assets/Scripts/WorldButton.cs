@@ -25,6 +25,7 @@ public class WorldButton : MonoBehaviour
 
     IEnumerator AnimateDepression()
     {
+        GameManager.Instance.RequestPlayButtonClickSound();
         float t = 0.0f;
         Vector3 startingPos = transform.localPosition;
 

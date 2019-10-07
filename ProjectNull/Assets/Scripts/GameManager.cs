@@ -5,33 +5,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    /// <summary>
-    /// Default constructor to private due to this being a Singleton.
-    /// </summary>
     private GameManager() {}
+    public static GameManager Instance { get; private set; }
 
-    /// <summary>
-    /// Lazily-initialized singleton instance of the game manager.
-    /// </summary>
-    private GameManager _instance;
+    public AudioSource LoudAudioSource; // lol what a hack
+    public AudioSource QuietAudioSource;
+    public AudioClip ButtonClickSound;
 
-    /// <summary>
-    /// Singleton instance of the game manager.
-    /// </summary>
-    public GameManager Instance
+    public void RequestPlayButtonClickSound()
     {
-        get {
-            if (_instance == null)
-            {
-                _instance = new GameManager();
-            }
-            return _instance;
-        }
+        LoudAudioSource.PlayOneShot(ButtonClickSound);
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
     }
 
     // Update is called once per frame

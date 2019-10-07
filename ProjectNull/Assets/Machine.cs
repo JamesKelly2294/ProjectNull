@@ -6,6 +6,8 @@ public class Machine : MonoBehaviour
 {
     public MachineWindow window;
     public bool canAccept = true;
+    
+    protected Box box;
 
     public void ObjectWasSchloinked(GameObject go)
     {
@@ -14,7 +16,7 @@ public class Machine : MonoBehaviour
 
     public void ObjectWasDisplayed(GameObject go)
     {
-
+        box = go.GetComponent<Box>();
     }
 
     public void ObjectWasRemovedFromDisplay (GameObject go)
@@ -24,7 +26,7 @@ public class Machine : MonoBehaviour
 
     public void ObjectWasSchlorped(GameObject go)
     {
-
+        box = null;
     }
 
     // Start is called before the first frame update

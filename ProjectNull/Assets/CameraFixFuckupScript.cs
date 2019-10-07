@@ -9,6 +9,7 @@ public class CameraFixFuckupScript : MonoBehaviour
     void Start()
     {
         GameObject cameraGO = GetComponentInChildren<Camera>().gameObject;
+        GetComponentInChildren<Camera>().nearClipPlane = 0.04f;
         GetComponentInChildren<Camera>().farClipPlane = 10000;
 
         cameraGO.AddComponent<GrabIt>();
