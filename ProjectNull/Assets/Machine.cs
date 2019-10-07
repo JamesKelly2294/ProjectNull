@@ -28,11 +28,6 @@ public class Machine : MonoBehaviour
     {
     }
 
-    public virtual void ObjectWasRemovedFromDisplay (GameObject go)
-    {
-
-    }
-
     public virtual void ObjectWasSchlorped(GameObject go)
     {
         box = null;
@@ -45,15 +40,33 @@ public class Machine : MonoBehaviour
         canAccept = true;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public virtual void ObjectWasRemovedFromDisplay(GameObject go)
     {
-        
+        if (targetOutput == null)
+        {
+            return;
+        }
+
+        if (targetOutput == rejectOutput)
+        {
+            targetOutput.YeetObject(box.gameObject);
+        }
+        else
+        {
+            BoxAccepted(box);
+            targetOutput.SchlorpObject(box.gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void BoxAccepted(Box box)
     {
 
+    }
+
+    protected MachineIO targetOutput;
+    public virtual void ValidateBox()
+    {
+        if (!box) { return; }
+        window.RemoveObjectFromDisplay();
     }
 }

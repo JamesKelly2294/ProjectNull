@@ -10,44 +10,30 @@ public class Sorter : Machine
     public MachineIO greenOutput;
     public MachineIO blueOutput;
 
+    private ConveyorSectorColor pressedColor;
+
     public void RedButtonWasPressed()
     {
-        ValidateBox(ConveyorSectorColor.red);
+        pressedColor = ConveyorSectorColor.red;
+        ValidateBox();
     }
 
     public void GreenButtonWasPressed()
     {
-        ValidateBox(ConveyorSectorColor.green);
+        pressedColor = ConveyorSectorColor.green;
+        ValidateBox();
     }
 
     public void BlueButtonWasPressed()
     {
-        ValidateBox(ConveyorSectorColor.blue);
+        pressedColor = ConveyorSectorColor.blue;
+        ValidateBox();
     }
-
-    public override void ObjectWasRemovedFromDisplay(GameObject go)
+    
+    public override void ValidateBox()
     {
-        if (targetOutput == null)
-        {
-            return;
-        }
-
-        if(targetOutput == input)
-        {
-            targetOutput.YeetObject(box.gameObject);
-        } else
-        {
-            box.MarkAsSorted();
-            targetOutput.SchlorpObject(box.gameObject);
-        }
-    }
-
-    private MachineIO targetOutput;
-    private void ValidateBox(ConveyorSectorColor color)
-    {
-        if(!box) { return; }
-
-        switch (color)
+        base.ValidateBox();
+        switch (pressedColor)
         {
             case ConveyorSectorColor.red:
                 targetOutput = redOutput;
@@ -61,14 +47,18 @@ public class Sorter : Machine
             default:
                 break;
         }
-        
-        window.RemoveObjectFromDisplay();
 
-        if (color != box.Task.sectorColor)
+        if (pressedColor != box.Task.sectorColor)
         {
             targetOutput = input;
         }
-       
+    }
+
+    public override void BoxAccepted(Box box)
+    {
+        base.BoxAccepted(box);
+
+        box.MarkAsSorted();
     }
 
     // Start is called before the first frame update

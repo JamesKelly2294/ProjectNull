@@ -3,10 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum AdulatorButton
+{
+    DoinGreat = 0,
+    YoureTrash,
+    AwesomeWork,
+    KillingIt
+}
+
 public class Adulator : Machine
 {
+    public MachineIO output;
 
     TextMeshPro rulesDescription;
+    AdulatorButton chosenAdulation;
+
+    public void DoinGreatButtonWasPressed()
+    {
+        chosenAdulation = AdulatorButton.DoinGreat;
+        ValidateBox();
+    }
+
+    public void YoureTrashButtonWasPressed()
+    {
+        chosenAdulation = AdulatorButton.YoureTrash;
+        ValidateBox();
+    }
+
+    public void AwesomeWorkButtonWasPressed()
+    {
+        chosenAdulation = AdulatorButton.AwesomeWork;
+        ValidateBox();
+    }
+
+    public void KillingItButtonWasPressed()
+    {
+        chosenAdulation = AdulatorButton.KillingIt;
+        ValidateBox();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -18,5 +52,12 @@ public class Adulator : Machine
     void Update()
     {
         rulesDescription.text = "FUCK";
+    }
+
+    public override void ValidateBox()
+    {
+        base.ValidateBox();
+
+        targetOutput = output;
     }
 }
