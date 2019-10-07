@@ -6,6 +6,8 @@ public enum InteractableType
 {
     Box = 0,
     Button = 1,
+
+    Item = 2,
 }
 
 public class Interactable : MonoBehaviour
